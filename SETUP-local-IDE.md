@@ -42,8 +42,11 @@ Assuming you already have a GitHub account.
  - `brew install maven`
  - verify Maven version: `mvn -v`
    
-9. install **Visual Studio Code**
-10. install **Visual Studio Code Extensions**
+9. install [**Chrome Driver**](https://developer.chrome.com/docs/chromedriver/downloads) and Chrome Browser ([Chrome browser test versions](https://googlechromelabs.github.io/chrome-for-testing/))
+
+10. install [**Visual Studio Code**](https://code.visualstudio.com)
+
+11. install **Visual Studio Code Extensions**
  - Java (Oracle Java Extention for Visual Studio Code)
  - Debugger for Java
  - Extension Pack for Java
@@ -52,7 +55,7 @@ Assuming you already have a GitHub account.
  - Project Manager for Java
  - GitHub Copilot
  - Github Copilot Chat
- - 
+
 12. setup [**coPilot**](https://docs.github.com/en/copilot/using-github-copilot/getting-started-with-github-copilot)
    
 13. install **Tesseract**
