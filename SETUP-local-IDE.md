@@ -48,11 +48,12 @@ Assuming you already have a GitHub account.
 
 11. install **Visual Studio Code Extensions**
  - Java (Oracle Java Extention for Visual Studio Code)
+ - Language Support for Java
  - Debugger for Java
  - Extension Pack for Java
+ - Project Manager for Java
  - Maven for Java
  - Reload
- - Project Manager for Java
  - GitHub Copilot
  - Github Copilot Chat
 
