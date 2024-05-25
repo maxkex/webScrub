@@ -27,13 +27,138 @@ class University {
     private String applFee;
     private String regApplDate;
     private String studentsReceivFinAid;
+    private String costAvrgPerYearAfterAid;
+    private String avrgAidPackage;
     private String costInState;
     private String costOutOfState;
     private String costFor110kHHIncome;
+    private String costFor75to100HHIncome;
+    private String costFor48to75kHHIncome;
+    private String costFor30to48kHHIncome;
+    private String costFor30kToLessHHIncome;
     private String costHousing;
     private String costBooksSuppl;
     private String costTransportation;
     private String underGradStudents;
+    private String regularAppDue;
+    private String earlyDecisionAppDue;
+    private String earlyActionAppDue;
+    private String studentFacultyRatio;
+    private String majorsAvailable;
+    private String retentionRate;
+    private String offersCredits;
+    private String offersAdvancedPlacements;
+    
+    public void setCostAvrgPerYearAfterAid(String costAvrgPerYearAfterAid) {
+        this.costAvrgPerYearAfterAid = costAvrgPerYearAfterAid;
+    }
+
+    public String getCostAvrgPerYearAfterAid() {
+        return costAvrgPerYearAfterAid;
+    }
+
+    public void setAvrgAidPackage(String avrgAidPackage) {
+        this.avrgAidPackage = avrgAidPackage;
+    }
+
+    public String getAvrgAidPackage() {
+        return avrgAidPackage;
+    }
+    public void setCostFor75to100HHIncome(String costFor75to100HHIncome) {
+        this.costFor75to100HHIncome = costFor75to100HHIncome;
+    }
+
+    public String getCostFor75to100HHIncome() {
+        return costFor75to100HHIncome;
+    }
+
+    public void setCostFor48to75kHHIncome(String costFor48to75kHHIncome) {
+        this.costFor48to75kHHIncome = costFor48to75kHHIncome;
+    }
+
+    public String getCostFor48to75kHHIncome() {
+        return costFor48to75kHHIncome;
+    }
+
+    public void setCostFor30to48kHHIncome(String costFor30to48kHHIncome) {
+        this.costFor30to48kHHIncome = costFor30to48kHHIncome;
+    }
+
+    public String getCostFor30to48kHHIncome() {
+        return costFor30to48kHHIncome;
+    }
+
+    public void setCostFor30kToLessHHIncome(String costFor30kToLessHHIncome) {
+        this.costFor30kToLessHHIncome = costFor30kToLessHHIncome;
+    }
+
+    public String getCostFor30kToLessHHIncome() {
+        return costFor30kToLessHHIncome;
+    }
+
+    public void setOffersCredits(String offersCredits) {
+        this.offersCredits = offersCredits;
+    }
+
+    public String getOffersCredits() {
+        return offersCredits;
+    }
+
+    public void setOffersAdvancedPlacements(String offersAdvancedPlacements) {
+        this.offersAdvancedPlacements = offersAdvancedPlacements;
+    }
+
+    public String getOffersAdvancedPlacements() {
+        return offersAdvancedPlacements;
+    }
+
+    public void setStudentFacultyRatio(String studentFacultyRatio) {
+        this.studentFacultyRatio = studentFacultyRatio;
+    }
+
+    public String getStudentFacultyRatio() {
+        return studentFacultyRatio;
+    }
+
+    public void setMajorsAvailable(String majorsAvailable) {
+        this.majorsAvailable = majorsAvailable;
+    }
+
+    public String getMajorsAvailable() {
+        return majorsAvailable;
+    }
+
+    public void setRetentionRate(String retentionRate) {
+        this.retentionRate = retentionRate;
+    }
+
+    public String getRetentionRate() {
+        return retentionRate;
+    }
+   
+    public void setRegularAppDue(String regularAppDue) {
+        this.regularAppDue = regularAppDue;
+    }
+    
+    public String getRegularAppDue() {
+        return regularAppDue;
+    }
+    
+    public void setEarlyDecisionAppDue(String earlyDecisionAppDue) {
+        this.earlyDecisionAppDue = earlyDecisionAppDue;
+    }
+    
+    public String getEarlyDecisionAppDue() {
+        return earlyDecisionAppDue;
+    }
+
+    public void setEarlyActionAppDue(String earlyActionAppDue) {
+        this.earlyActionAppDue = earlyActionAppDue;
+    }
+
+    public String getEarlyActionAppDue() {
+        return earlyActionAppDue;
+    }
 
     public void setUrlUniverWebSite(String urlUniverWebSite) {
         this.urlUniverWebSite = urlUniverWebSite;
