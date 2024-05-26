@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CollegeBoard",
+            "request": "launch",
+            "mainClass": "getWebSite.CollegeBoard",
+            "projectName": "webScrub"
+        },
+        {
+            "type": "java",
             "name": "Current File",
             "request": "launch",
             "mainClass": "${file}"
