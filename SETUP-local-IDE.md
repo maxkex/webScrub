@@ -54,10 +54,10 @@ Assuming you already have a GitHub account.
  - Project Manager for Java
  - Maven for Java
  - Reload
- - GitHub Copilot
- - Github Copilot Chat
+ - * GitHub Copilot
+ - * Github Copilot Chat
 
-12. setup [**coPilot**](https://docs.github.com/en/copilot/using-github-copilot/getting-started-with-github-copilot)
+12. * setup [**coPilot**](https://docs.github.com/en/copilot/using-github-copilot/getting-started-with-github-copilot)
    
 13. install **Tesseract**
  - `brew install tesseract`
