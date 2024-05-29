@@ -44,14 +44,14 @@ public class CollegeBoard
     universityData[4].setUrlCollegeBoard("https://bigfuture.collegeboard.org/colleges/massachusetts-institute-of-technology");
     */
     for (University university : universityData) {
+        String univerName = university.getUniverName();
         String eaURL = university.getUrlCollegeBoard();
+    System.out.println("----------------| " + univerName + " |------" + "\n" + eaURL);
     new CBOverview().univerCbOverview(eaURL, driver, university);
     new CBAdmissions().univerCBAdmissions(eaURL, driver, university);
     new CBAcademics().univerCBAcademics(eaURL, driver, university);
     new CBCosts().univerCBCosts(eaURL, driver, university);
     new CBCampusLife().univerCBCampusLife(eaURL, driver, university);
-
-   // System.out.println("-------------------------------------");
     }
     // Close the browser
     driver.quit();

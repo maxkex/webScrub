@@ -77,8 +77,11 @@ public class CBSearchGetSchools
             String univerName = univElement.findElement(By.cssSelector(".cs-college-card-college-name span")).getText();
             currUniver.setUniverName(univerName);
         } catch (NoSuchElementException e) {
-           // System.out.println("University Name not found");
+           System.out.println("University Name not found");
         }
+        String univerName = currUniver.getUniverName();
+        String eaURL = currUniver.getUrlCollegeBoard();
+        System.out.println("~~~~~~~~| " + univerName + " |~~~~~" + "\n" + eaURL);
 
         try {
             String addr = univElement.findElement(By.cssSelector("[data-testid='cs-college-card-college-address']")).getText();
