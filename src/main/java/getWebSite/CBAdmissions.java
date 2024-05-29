@@ -24,7 +24,7 @@ public class CBAdmissions
         try {
             WebElement totalApplicantsElement = driver.findElement(By.xpath("//div[text()='Total Applicants']/following-sibling::div"));
             String totalApplicants = totalApplicantsElement.getText();
-            System.out.println("Total Applicants: " + totalApplicants);
+            // System.out.println("Total Applicants: " + totalApplicants);
             university.setTotalApplicants(totalApplicants.trim());
         } catch (NoSuchElementException e) {
             System.out.println("Total Applicants not found");
@@ -32,7 +32,7 @@ public class CBAdmissions
         try {
             WebElement admittedElement = driver.findElement(By.xpath("//div[text()='Admitted']/following-sibling::div"));
             String admitted = admittedElement.getText();
-            System.out.println("Admitted Applicants: " + admitted);
+            // System.out.println("Admitted Applicants: " + admitted);
             university.setAdmittedAppl(admitted.trim());
         } catch (NoSuchElementException e) {
             System.out.println("Admitted Applicants not found");
@@ -40,14 +40,14 @@ public class CBAdmissions
         try {
             WebElement enrolledElement = driver.findElement(By.xpath("//div[text()='Enrolled']/following-sibling::div"));
             String enrolled = enrolledElement.getText();
-            System.out.println("Enrolled applicants: " + enrolled);
+            // System.out.println("Enrolled applicants: " + enrolled);
             university.setEnrolledAppl(enrolled.trim());
         } catch (NoSuchElementException e) {
             System.out.println("Enrolled applicants not found");
         }
         try {
             String univerWebsite = driver.findElement(By.xpath("//a[contains(text(), 'visiting the college website')]")).getAttribute("href");
-            System.out.println("UniverWebsite: " + univerWebsite);
+            // System.out.println("UniverWebsite: " + univerWebsite);
             university.setUrlUniverWebSite(univerWebsite);
         } catch (NoSuchElementException e) {
             System.out.println("College website not found");
@@ -55,10 +55,18 @@ public class CBAdmissions
        
         try {
             String acceptanceRate = driver.findElement(By.xpath("//div[text()='Acceptance Rate']/following-sibling::div")).getText();
-            System.out.println("Acceptance Rate: " + acceptanceRate);
+            // System.out.println("Acceptance Rate: " + acceptanceRate);
             university.setAcceptanceRate(acceptanceRate);
         } catch (NoSuchElementException e) {
             System.out.println("Acceptance Rate not found");
+        }
+        try {
+            WebElement feeElement = driver.findElement(By.cssSelector(".cs-label-value-pair-value.cs-application-process-application-fee"));
+            String fee = feeElement.getText();
+            // System.out.println("Application Fee: " + fee);
+            university.setApplFee(fee);
+        } catch (NoSuchElementException e) {
+            System.out.println("Application Fee not found");
         }
         
         try {
@@ -68,7 +76,7 @@ public class CBAdmissions
                 // extract SAT test type and score
                 Pattern pattern = Pattern.compile("SAT (\\w+).*:\\s*(.*)");
                 Matcher matcher = pattern.matcher(ariaLabel);
-                //System.out.println(ariaLabel);
+                // System.out.println(ariaLabel);
 
                 if (matcher.find()) {
                     String discipline = matcher.group(1).trim().toLowerCase();
@@ -76,18 +84,18 @@ public class CBAdmissions
                     switch (discipline) {
                         case "composite":
                             university.setSatTotalRange(score);
-                            System.out.println("SAT Composite: " + score);
+                            // System.out.println("SAT Composite: " + score);
                             break;
                         case "reading":
                             university.setSatReadingRange(score);
-                            System.out.println("SAT Reading: " + score);
+                            // System.out.println("SAT Reading: " + score);
                             break;
                         case "math":
                             university.setSatMathRange(score);
-                            System.out.println("SAT Math: " + score);
+                            // System.out.println("SAT Math: " + score);
                             break;
                         default:
-                            System.out.println("Unknown SAT discipline: " + discipline + " :" + score);
+                            // System.out.println("Unknown SAT discipline: " + discipline + " :" + score);
                             break;
                     }
                 }
