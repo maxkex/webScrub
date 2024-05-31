@@ -21,6 +21,16 @@ public class CBAdmissions
         driver.get(urlCollegeBoard + "/admissions");
         // Wait for the page to load
         Thread.sleep(2000);
+       
+    try {
+        WebElement regularApplicationElement = driver.findElement(By.xpath("//div[text()='Regular Application Due']/following-sibling::div"));
+        String regularApplication = regularApplicationElement.getText();
+        System.out.println("Regular Application Date: " + regularApplication);
+        university.setRegularAppDue(regularApplication.trim());
+    } catch (NoSuchElementException e) {
+        System.out.println("Regular Application Date not found");
+    }
+       
         try {
             WebElement totalApplicantsElement = driver.findElement(By.xpath("//div[text()='Total Applicants']/following-sibling::div"));
             String totalApplicants = totalApplicantsElement.getText();

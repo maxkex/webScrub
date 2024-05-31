@@ -77,7 +77,7 @@ public class CBAcademics
                 }
             }
         } catch (NoSuchElementException e) {
-            // System.out.println("Element 'csp-profile-majors-typeahead-list-content-group-items' not found");
+            System.out.println("Element Majors not found");
         }
         // System.out.println("\n" + "============================" + "\n" + university.getMajorsAvailable()+"\n" + "============================" );
 

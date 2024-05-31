@@ -1,95 +1,109 @@
 package getWebSite;
 
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
 class University {
 // search page data
-    private String univerName;
-    private String city;
-    private String state;
-    private String schoolTypeByYears;
-    private String schoolTypeByDesignation;
-    private String schoolSize;
-    private String schoolSetting;
-    private String graduationRate;
-    private String satScoreRange;
-    private String urlCollegeBoard;
+    private String univerName; // College Board
+    private String univerURLfriendly; // url for spreashees: univerName + university admissions page
+    private String city; // College Board
+    private String state; // College Board
+    private String schoolTypeByYears; // College Board
+    private String schoolTypeByDesignation; // College Board
+    private String schoolSize; // College Board
+    private String schoolSetting; // College Board
+    private String graduationRate; // College Board
+    private String satScoreRange; // College Board
+    private String urlCollegeBoard; // College Board
+    private String urlCBfriendly; // url for spreashees, combines collegeBoardCode + urlCollegeBoard
 // Overview page data
-    private String address;
-    private String mapLink;
-    private String phone;
-    private String collegeBoardCode;
+    private String address; // College Board
+    private String mapLink; // College Board
+    private String urlMapLinkFriendly; // url for spreashees, combines "Map" and direct URL
+    private String phone; // College Board
+    private String collegeBoardCode; // College Board
+    private String url_univerOnlineApplication; // College Board
 // Admissions page data
-    private String urlUniverWebSite;
-    private String acceptanceRate;
-    private String totalApplicants;
-    private String admittedAppl;
-    private String enrolledAppl;
-    private String satTotalRange;
-    private String satReadingRange;
-    private String satMathRange;
-    private String applFee;
-    private String regularAppDue; // NOT implemented
-    private String earlyDecisionAppDue; // NOT implemented
-    private String earlyActionAppDue; // NOT implemented
+    private String urlUniverWebSite; // College Board
+    private String acceptanceRate; // College Board
+    private String totalApplicants; // College Board
+    private String admittedAppl; // College Board
+    private String enrolledAppl; // College Board
+    private String satTotalRange; // College Board
+    private String satReadingRange; // College Board
+    private String satMathRange; // College Board
+    private String applFee; // College Board
+    private String regularAppDue; // College Board
+    private String earlyDecisionAppDue; // NOT implemented ----!!!!!!!!
+    private String earlyActionAppDue; // NOT implemented-----!!!!!!!!!
     // GPA data
-    // Offers placement into advanced courses - list of courses
+    // Offers placement into advanced courses - list of courses https://bigfuture.collegeboard.org/colleges/california-state-university-sacramento/academics
+    // "Special Academics Programs" - list of programs like "Double Major" "Distance Learning" "Student-Designed Major" "Undergraduate Research" etc.
 // Academics page data
-    private String studentFacultyRatio;
-    private String majorsCount;
-    private String retentionRate;
-    private List<String> majorsAvailable;
-    private String offersCredits;
-    private String offersAdvancedPlacements;
+    private String studentFacultyRatio; // College Board
+    private String majorsCount; // College Board
+    private String retentionRate; // College Board
+    private List<String> majorsAvailable; // College Board
+    private String offersCredits; // College Board
+    private String offersAdvancedPlacements; // College Board
 // Costs page data
-    private String costAvrgPerYearAfterAid;
-    private String studentsReceivFinAid;
-    private String avrgAidPackage;
-    private String costInStateFull;
-    private String costOutOfStateFull;
-    private String costFor110kHHIncome;
-    private String costHousing; 
-    private String costBooksSuppl;
-    private String costPersonalExpenses;
-    private String costTransportation;
+    private String costAvrgPerYearAfterAid; // College Board
+    private String studentsReceivFinAid; // College Board
+    private String avrgAidPackage; // College Board
+    private String costInStateFull; // College Board
+    private String costOutOfStateFull; // College Board
+    private String costFor110kHHIncome; // College Board
+    private String costHousing;  // College Board
+    private String costBooksSuppl; // College Board
+    private String costPersonalExpenses; // College Board
+    private String costTransportation; // College Board
 // Campus Life page data
-    private String url_univerOnlineApplication;
-    private String underGradStudents;
-    private String graduateStudents;
-    private String fullTimeStudents;
-    private String partTimeStudents;
-    private String firstYearsInCollegeHousing;
-    private String priRes_OutState;
-    private String ethn_black;
-    private String ethn_asians;
-    private String ethn_hispanics;
-    private String ethn_multi;
-    private String ethn_nativAm;
-    private String ethn_pacificIslr;
-    private String ethn_white;
-    private String ethn_intenational;
-    private String ethn_unknown;
+    private String underGradStudents; // College Board
+    private String graduateStudents; // College Board
+    private String fullTimeStudents; // College Board
+    private String partTimeStudents; // College Board
+    private String firstYearsInCollegeHousing; // College Board
+    private String priRes_OutState; // College Board
+    private String ethn_black; // College Board
+    private String ethn_asians; // College Board
+    private String ethn_hispanics; // College Board
+    private String ethn_multi; // College Board
+    private String ethn_nativAm; // College Board
+    private String ethn_pacificIslr; // College Board
+    private String ethn_white; // College Board
+    private String ethn_intenational; // College Board
+    private String ethn_unknown; // College Board
+// -- My fields
+    // Applying (yes/no/interested)
+    // Priority of interest
+// SCOIR data
+    // Nearest Airport
+    // Academics -  Popular Majors
+    // Academics -  Applications Deadlines
+    // Stidemtslife  - gender
+    // ROTC Program?
+    // SCOIR ID 
+    // Application method
 
-
-    public void writeToFileTXT(String fileName) {
-        try (PrintWriter writer = new PrintWriter(new FileWriter(fileName, true))) {
-            StringBuilder sb = new StringBuilder();
-            String delim = "|";
-            // Append the data for each university
-            //sb.append((countOfUnivrFound - udInx) + " of " + countOfUnivrFound);
-            sb.append(delim);
-            //sb.append(universityData[udInx].getUniverName());
-            sb.append('\n');
-            writer.append(sb.toString());
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
-        }
-    }
+//Common App data https://www.commonapp.org/explore/
+    // Common App ID
+    // Common App URL
+    // Admissions website
+    // Financial aid website
+    // Addmissions email admissions@nyu.edu
+    //Application Deadlines // First Year
+    //  Restrictive Early Action - 11/01/2023
+    //Regular Decision - 01/03/2024
+    // Links: College WebsiteAdmissions OfficeVirtual TourCollege Navigator
+    // other deadlines: Visit our website
     
+    
+    public Field[] getFields() {
+        return University.class.getDeclaredFields();
+    }
+
     public String getUrl_univerOnlineApplication() {
         return url_univerOnlineApplication;
     }
