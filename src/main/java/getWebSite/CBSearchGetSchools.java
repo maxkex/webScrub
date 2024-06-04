@@ -48,7 +48,14 @@ public class CBSearchGetSchools
         js.executeScript("arguments[0].scrollIntoView(false);", showMoreButton);
         Thread.sleep(1500);
         // Click the "Show More Colleges" button
-        showMoreButton.click();
+        try {
+            showMoreButton = driver.findElement(By.cssSelector("button[data-testid='cs-show-more-results']"));
+            showMoreButton.click();
+        } catch (NoSuchElementException e) {
+            System.out.println("Show More button not found");
+            break;
+        }
+    
         Thread.sleep(1600);
         try {
             isShowMoreButtonDisplayed = showMoreButton.isDisplayed();

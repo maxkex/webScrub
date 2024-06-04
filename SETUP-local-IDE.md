@@ -54,6 +54,7 @@ Assuming you already have a GitHub account.
  - Project Manager for Java
  - Maven for Java
  - Reload
+ - Excel Viewer
  - * GitHub Copilot
  - * Github Copilot Chat
 

@@ -6,6 +6,7 @@ import java.util.List;
 
 class University {
 // search page data
+    private int fileRowID; // ID of the row in the Excel file
     private String univerName; // College Board
     private String univerURLfriendly; // url for spreashees: univerName + university admissions page
     private String city; // College Board
@@ -88,6 +89,7 @@ class University {
     // Application method
 
 //Common App data https://www.commonapp.org/explore/
+    private String commonAppID;
     // Common App ID
     // Common App URL
     // Admissions website
@@ -604,5 +606,13 @@ class University {
 
     public void setCostPersonalExpenses(String costPersonalExpenses) {
         this.costPersonalExpenses = costPersonalExpenses;
+    }
+
+    public int getFileRowID() {
+        return fileRowID;
+    }
+
+    public void setFileRowID(int fileRowID) {
+        this.fileRowID = fileRowID;
     }
   }

@@ -55,10 +55,5 @@ public class webScrubMain
     String excelFileName = "universityData.xlsx";
     String fullFilePath = "/Users/qarnd/Downloads/"+excelFileName;
     System.out.println("fullFilePath: " + fullFilePath);
-    try {
-        writeToFile.writToExcell(universityData, fullFilePath);
-    } catch (IOException e) {
-        System.out.println("Error writing to Excel file: " + e.getMessage());
-    }
     }
 }
