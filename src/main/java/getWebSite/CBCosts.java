@@ -9,42 +9,42 @@ public class CBCosts
     public static void main( String[] args ) throws InterruptedException
     {
     }
-    public static void univerCBCosts(String urlCollegeBoard, WebDriver driver, University university) throws InterruptedException {
-        urlCollegeBoard = university.getUrlCollegeBoard();
-        if (urlCollegeBoard == null || urlCollegeBoard.isEmpty()) {
+    public static void univerCBCosts(String URLCollegeBoard, WebDriver driver, University university) throws InterruptedException {
+        URLCollegeBoard = university.getURLCollegeBoard();
+        if (URLCollegeBoard == null || URLCollegeBoard.isEmpty()) {
             return;
         }
-        driver.get(urlCollegeBoard + "/tuition-and-costs");
+        driver.get(URLCollegeBoard + "/tuition-and-costs");
         // Wait for the page to load
         Thread.sleep(2000);
         try {
-            String costAvrgPerYearAfterAid = driver.findElement(By.xpath("//div[text()='Average Per Year After Aid']/following-sibling::div")).getText();
-            // System.out.println("Average Per Year After Aid: " + costAvrgPerYearAfterAid);
-            university.setCostAvrgPerYearAfterAid(costAvrgPerYearAfterAid);
+            String CostAvrgPerYearAfterAid = driver.findElement(By.xpath("//div[text()='Average Per Year After Aid']/following-sibling::div")).getText();
+            // System.out.println("Average Per Year After Aid: " + CostAvrgPerYearAfterAid);
+            university.setCostAvrgPerYearAfterAid(CostAvrgPerYearAfterAid);
         } catch (NoSuchElementException e) {
             System.out.println("Average Per Year After Aid not found");
         }
         try {
-            WebElement avrgAidPackageElement = driver.findElement(By.xpath("//div[text()='Average Aid Package']/following-sibling::div"));
-            String avrgAidPackage = avrgAidPackageElement.getText();
-            // System.out.println("Average Aid Package: " + avrgAidPackage);
-            university.setAvrgAidPackage(avrgAidPackage.trim());
+            WebElement AvrgAidPackageElement = driver.findElement(By.xpath("//div[text()='Average Aid Package']/following-sibling::div"));
+            String AvrgAidPackage = AvrgAidPackageElement.getText();
+            // System.out.println("Average Aid Package: " + AvrgAidPackage);
+            university.setAvrgAidPackage(AvrgAidPackage.trim());
         } catch (NoSuchElementException e) {
             System.out.println("Average Aid Package not found");
         }
  
         try {
-            WebElement studentsReceivFinAidElement = driver.findElement(By.xpath("//div[text()='Students Receiving Financial Aid']/following-sibling::div"));
-            String studentsReceivFinAid = studentsReceivFinAidElement.getText();
-            // System.out.println("Students Receiving Financial Aid: " + studentsReceivFinAid);
-            university.setStudentsReceivFinAid(studentsReceivFinAid.trim());
+            WebElement StudentsReceivFinAidElement = driver.findElement(By.xpath("//div[text()='Students Receiving Financial Aid']/following-sibling::div"));
+            String StudentsReceivFinAid = StudentsReceivFinAidElement.getText();
+            // System.out.println("Students Receiving Financial Aid: " + StudentsReceivFinAid);
+            university.setStudentsReceivFinAid(StudentsReceivFinAid.trim());
         } catch (NoSuchElementException e) {
             System.out.println("Students Receiving Financial Aid not found");
         }
         try {
             String inStateTuition = driver.findElement(By.id("csp-list-item-csp-tuition-data-1-0-value")).getText().replaceAll("[^0-9]+$", "");
             // System.out.println("In-State Tuition: " + inStateTuition);
-            university.setcostInStateFull(inStateTuition);
+            university.setCostInStateFull(inStateTuition);
         } catch (NoSuchElementException e) {
             System.out.println("element In-State Tuition not found");
         }

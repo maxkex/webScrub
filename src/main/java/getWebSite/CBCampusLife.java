@@ -11,18 +11,18 @@ public class CBCampusLife
     public static void main( String[] args ) throws InterruptedException
     {
     }
-    public static void univerCBCampusLife(String urlCollegeBoard, WebDriver driver, University university) throws InterruptedException {
-        urlCollegeBoard = university.getUrlCollegeBoard();
-        if (urlCollegeBoard == null || urlCollegeBoard.isEmpty()) {
+    public static void univerCBCampusLife(String URLCollegeBoard, WebDriver driver, University university) throws InterruptedException {
+        URLCollegeBoard = university.getURLCollegeBoard();
+        if (URLCollegeBoard == null || URLCollegeBoard.isEmpty()) {
             return;
         }
-        driver.get(urlCollegeBoard + "/campus-life");
+        driver.get(URLCollegeBoard + "/campus-life");
         // Wait for the page to load
         Thread.sleep(2000);
         try {
-            String underGradStudents = driver.findElement(By.xpath("//div[text()='Undergraduate Students']/following-sibling::div")).getText();
-            // System.out.println("Undergraduate Students: " + underGradStudents);
-            university.setUnderGradStudents(underGradStudents);
+            String UnderGradStudents = driver.findElement(By.xpath("//div[text()='Undergraduate Students']/following-sibling::div")).getText();
+            // System.out.println("Undergraduate Students: " + UnderGradStudents);
+            university.setUnderGradStudents(UnderGradStudents);
         } catch (NoSuchElementException e) {
            System.out.println("element Undergraduate Students not found");
         }
@@ -44,16 +44,16 @@ public class CBCampusLife
             System.out.println("element Total Graduate Students not found");
         }
         try {
-            String fullTimeStudents = driver.findElement(By.id("csp-list-item-full-time-enrollment-value")).getText();
-            // System.out.println("Full-Time Students: " + fullTimeStudents);
-            university.setFullTimeStudents(fullTimeStudents);
+            String FullTimeStudents = driver.findElement(By.id("csp-list-item-full-time-enrollment-value")).getText();
+            // System.out.println("Full-Time Students: " + FullTimeStudents);
+            university.setFullTimeStudents(FullTimeStudents);
         } catch (NoSuchElementException e) {
             System.out.println("element Full-Time Students not found");
         }
         try {
-            String partTimeStudents = driver.findElement(By.id("csp-list-item-part-time-enrollment-value")).getText();
-            // System.out.println("Part-Time Students: " + partTimeStudents);
-            university.setPartTimeStudents(partTimeStudents);
+            String PartTimeStudents = driver.findElement(By.id("csp-list-item-part-time-enrollment-value")).getText();
+            // System.out.println("Part-Time Students: " + PartTimeStudents);
+            university.setPartTimeStudents(PartTimeStudents);
         } catch (NoSuchElementException e) {
             System.out.println("element Part-Time Students not found");
         }
@@ -121,9 +121,9 @@ public class CBCampusLife
             System.out.println("element International (Non-Citizen) Students not found");
         }
         try {
-            String outOfStateStudents = driver.findElement(By.id("csp-list-item-out-of-state-value")).getText();
+            String outOfStateStudents = driver.findElement(By.id("csp-list-item-out-of-State-value")).getText();
             // System.out.println("Out-of-State Students: " + outOfStateStudents);
-            university.setPriRes_OutState(outOfStateStudents);
+            university.setPrimaryResidenceOutOfState(outOfStateStudents);
         } catch (NoSuchElementException e) {
             System.out.println("element Out-of-State Students not found");
         }

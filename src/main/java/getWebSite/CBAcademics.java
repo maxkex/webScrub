@@ -11,12 +11,12 @@ public class CBAcademics
     public static void main( String[] args ) throws InterruptedException
     {
     }
-    public static void univerCBAcademics(String urlCollegeBoard, WebDriver driver, University university) throws InterruptedException {
-        urlCollegeBoard = university.getUrlCollegeBoard();
-        if (urlCollegeBoard == null || urlCollegeBoard.isEmpty()) {
+    public static void univerCBAcademics(String URLCollegeBoard, WebDriver driver, University university) throws InterruptedException {
+        URLCollegeBoard = university.getURLCollegeBoard();
+        if (URLCollegeBoard == null || URLCollegeBoard.isEmpty()) {
             return;
         }
-        driver.get(urlCollegeBoard + "/academics");
+        driver.get(URLCollegeBoard + "/academics");
         // Wait for the page to load
         Thread.sleep(2000);
         try {
@@ -29,35 +29,35 @@ public class CBAcademics
         }
  
         try {
-            WebElement majorsCountElement = driver.findElement(By.xpath("//div[text()='Majors Available']/following-sibling::div"));
-            String majorsCount = majorsCountElement.getText();
-            // System.out.println("Majors Available: " + majorsCount);
-            university.setMajorsCount(majorsCount.trim());
+            WebElement MajorsCountElement = driver.findElement(By.xpath("//div[text()='Majors Available']/following-sibling::div"));
+            String MajorsCount = MajorsCountElement.getText();
+            // System.out.println("Majors Available: " + MajorsCount);
+            university.setMajorsCount(MajorsCount.trim());
         } catch (NoSuchElementException e) {
             System.out.println("Majors Available not found");
         }
  
         try {
-            WebElement retentionRateElement = driver.findElement(By.xpath("//div[text()='Retention Rate']/following-sibling::div"));
-            String retentionRate = retentionRateElement.getText();
-            // System.out.println("Retention Rate: " + retentionRate);
-            university.setRetentionRate(retentionRate.trim());
+            WebElement RetentionRateElement = driver.findElement(By.xpath("//div[text()='Retention Rate']/following-sibling::div"));
+            String RetentionRate = RetentionRateElement.getText();
+            // System.out.println("Retention Rate: " + RetentionRate);
+            university.setRetentionRate(RetentionRate.trim());
         } catch (NoSuchElementException e) {
             System.out.println("Retention Rate not found");
         } 
         try {
-            WebElement offersCreditsElement = driver.findElement(By.xpath("//p[text()='Offers credits']/following-sibling::p"));
-            String offersCredits = offersCreditsElement.getText();
-            // System.out.println("Offers Credits: " + offersCredits);
-            university.setOffersCredits(offersCredits.trim());
+            WebElement OffersCreditsElement = driver.findElement(By.xpath("//p[text()='Offers credits']/following-sibling::p"));
+            String OffersCredits = OffersCreditsElement.getText();
+            // System.out.println("Offers Credits: " + OffersCredits);
+            university.setOffersCredits(OffersCredits.trim());
         } catch (NoSuchElementException e) {
             System.out.println("Offers Credits not found");
         } 
         try {
-            WebElement offersAdvancedPlacementsElement = driver.findElement(By.xpath("//p[text()='Offers placement into advanced courses']/following-sibling::p"));
-            String offersAdvancedPlacements = offersAdvancedPlacementsElement.getText();
-            // System.out.println("Offers placement into advanced courses: " + offersAdvancedPlacements);
-            university.setOffersAdvancedPlacements(offersAdvancedPlacements.trim());
+            WebElement OffersAdvancedPlacementsElement = driver.findElement(By.xpath("//p[text()='Offers placement into advanced courses']/following-sibling::p"));
+            String OffersAdvancedPlacements = OffersAdvancedPlacementsElement.getText();
+            // System.out.println("Offers placement into advanced courses: " + OffersAdvancedPlacements);
+            university.setOffersAdvancedPlacements(OffersAdvancedPlacements.trim());
         } catch (NoSuchElementException e) {
             System.out.println("Offers placement into advanced courses not found");
         } 

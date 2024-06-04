@@ -29,21 +29,21 @@ public class webScrubMain
     driver.quit();
      /*
     universityData[0] = new University();
-    universityData[0].setUrlCollegeBoard("https://bigfuture.collegeboard.org/colleges/university-of-california-davis");
+    universityData[0].setURLCollegeBoard("https://bigfuture.collegeboard.org/colleges/university-of-california-davis");
     universityData[1] = new University();
-    universityData[1].setUrlCollegeBoard("https://bigfuture.collegeboard.org/colleges/stanford-university");
+    universityData[1].setURLCollegeBoard("https://bigfuture.collegeboard.org/colleges/stanford-university");
     universityData[2] = new University();
-    universityData[2].setUrlCollegeBoard("https://bigfuture.collegeboard.org/colleges/bluefield-state-university");
+    universityData[2].setURLCollegeBoard("https://bigfuture.collegeboard.org/colleges/bluefield-State-university");
     universityData[3] = new University();
-    universityData[3].setUrlCollegeBoard("https://bigfuture.collegeboard.org/colleges/university-of-florida");
+    universityData[3].setURLCollegeBoard("https://bigfuture.collegeboard.org/colleges/university-of-florida");
     universityData[4] = new University();
-    universityData[4].setUrlCollegeBoard("https://bigfuture.collegeboard.org/colleges/massachusetts-institute-of-technology");
+    universityData[4].setURLCollegeBoard("https://bigfuture.collegeboard.org/colleges/massachusetts-institute-of-technology");
     */
     for (University university : universityData) {
         driver = myWebDriver.getDriver();
-        String univerName = university.getUniverName();
-        String eaURL = university.getUrlCollegeBoard();
-    System.out.println("----------------| " + univerName + " |------" + "\n" + eaURL);
+        String UniverName = university.getUniverName();
+        String eaURL = university.getURLCollegeBoard();
+    System.out.println("----------------| " + UniverName + " |------" + "\n" + eaURL);
     new CBOverview().univerCbOverview(eaURL, driver, university);
     new CBAdmissions().univerCBAdmissions(eaURL, driver, university);
     new CBAcademics().univerCBAcademics(eaURL, driver, university);

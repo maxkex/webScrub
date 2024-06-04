@@ -6,75 +6,75 @@ import java.util.List;
 
 class University {
 // search page data
-    public String univerName; // College Board
-    private String univerURLfriendly; // url for spreashees: univerName + university admissions page
-    private String city; // College Board
-    private String state; // College Board
-    private String schoolTypeByYears; // College Board
-    private String schoolTypeByDesignation; // College Board
-    private String schoolSize; // College Board
-    private String schoolSetting; // College Board
-    private String graduationRate; // College Board
-    private String satScoreRange; // College Board
-    private String urlCollegeBoard; // College Board
-    private String urlCBfriendly; // url for spreashees, combines collegeBoardCode + urlCollegeBoard
+    public String UniverName; // College Board
+    private String UniverURLfriendly; // url for spreashees: UniverName + university admissions page
+    private String City; // College Board
+    private String State; // College Board
+    private String UniverTypeByYears; // College Board
+    private String UniverTypeByDesignation; // College Board
+    private String UniverSize; // College Board
+    private String UniverSetting; // College Board
+    private String GraduationRate; // College Board
+    private String SATScoreRange; // College Board
+    private String URLCollegeBoard; // College Board
+    private String URLCollegeBoardFriendly; // url for spreashees, combines CollegeBoardCode + URLCollegeBoard
 // Overview page data
-    private String address; // College Board
-    private String mapLink; // College Board
-    private String urlMapLinkFriendly; // url for spreashees, combines "Map" and direct URL
-    private String phone; // College Board
-    private String collegeBoardCode; // College Board
-    private String url_univerOnlineApplication; // College Board
+    private String Address; // College Board
+    private String MapLink; // College Board
+    private String URLMapLinkFriendly; // url for spreashees, combines "Map" and direct URL
+    private String Phone; // College Board
+    private String CollegeBoardCode; // College Board
+    private String UniverOnlineApplicationURL; // College Board
 // Admissions page data
-    private String urlUniverWebSite; // College Board
-    private String acceptanceRate; // College Board
-    private String totalApplicants; // College Board
-    private String admittedAppl; // College Board
-    private String enrolledAppl; // College Board
-    private String satTotalRange; // College Board
-    private String satReadingRange; // College Board
-    private String satMathRange; // College Board
-    private String applFee; // College Board
-    private String regularAppDue; // College Board
-    private String earlyDecisionAppDue; // NOT implemented ----!!!!!!!!
-    private String earlyActionAppDue; // NOT implemented-----!!!!!!!!!
+    private String UniverWebSiteURL; // College Board
+    private String AcceptanceRate; // College Board
+    private String ApplicantsTotal; // College Board
+    private String ApplicantsAdmitted; // College Board
+    private String ApplicantsEnrolled; // College Board
+    private String SATTotalRange; // College Board
+    private String SATReadingRange; // College Board
+    private String SATMathRange; // College Board
+    private String ApplicationFee; // College Board
+    private String RegularAppDueDate; // College Board
+    private String EarlyDecisionAppDueDate; // NOT implemented ----!!!!!!!!
+    private String EarlyActionAppDueDate; // NOT implemented-----!!!!!!!!!
     // GPA data
-    // Offers placement into advanced courses - list of courses https://bigfuture.collegeboard.org/colleges/california-state-university-sacramento/academics
+    // Offers placement into advanced courses - list of courses https://bigfuture.collegeboard.org/colleges/california-State-university-sacramento/academics
     // "Special Academics Programs" - list of programs like "Double Major" "Distance Learning" "Student-Designed Major" "Undergraduate Research" etc.
 // Academics page data
-    private String studentFacultyRatio; // College Board
-    private String majorsCount; // College Board
-    private String retentionRate; // College Board
-    private List<String> majorsAvailable; // College Board
-    private String offersCredits; // College Board
-    private String offersAdvancedPlacements; // College Board
+    private String StudentFacultyRatio; // College Board
+    private String MajorsCount; // College Board
+    private String RetentionRate; // College Board
+    private List<String> MajorsAvailable; // College Board
+    private String OffersCredits; // College Board
+    private String OffersAdvancedPlacements; // College Board
 // Costs page data
-    private String costAvrgPerYearAfterAid; // College Board
-    private String studentsReceivFinAid; // College Board
-    private String avrgAidPackage; // College Board
-    private String costInStateFull; // College Board
-    private String costOutOfStateFull; // College Board
-    private String costFor110kHHIncome; // College Board
-    private String costHousing;  // College Board
-    private String costBooksSuppl; // College Board
-    private String costPersonalExpenses; // College Board
-    private String costTransportation; // College Board
+    private String CostAvrgPerYearAfterAid; // College Board
+    private String StudentsReceivFinAid; // College Board
+    private String AvrgAidPackage; // College Board
+    private String CostInStateFull; // College Board
+    private String CostOutOfStateFull; // College Board
+    private String CostFor110kHHIncome; // College Board
+    private String CostHousing;  // College Board
+    private String CostBooksSuppl; // College Board
+    private String CostPersonalExpenses; // College Board
+    private String CostTransportation; // College Board
 // Campus Life page data
-    private String underGradStudents; // College Board
-    private String graduateStudents; // College Board
-    private String fullTimeStudents; // College Board
-    private String partTimeStudents; // College Board
-    private String firstYearsInCollegeHousing; // College Board
-    private String priRes_OutState; // College Board
-    private String ethn_black; // College Board
-    private String ethn_asians; // College Board
-    private String ethn_hispanics; // College Board
-    private String ethn_multi; // College Board
-    private String ethn_nativAm; // College Board
-    private String ethn_pacificIslr; // College Board
-    private String ethn_white; // College Board
-    private String ethn_intenational; // College Board
-    private String ethn_unknown; // College Board
+    private String UnderGradStudents; // College Board
+    private String GraduateStudents; // College Board
+    private String FullTimeStudents; // College Board
+    private String PartTimeStudents; // College Board
+    private String FirstYearsInCollegeHousing; // College Board
+    private String PrimaryResidenceOutOfState; // College Board
+    private String Ethn_black; // College Board
+    private String Ethn_asians; // College Board
+    private String Ethn_hispanics; // College Board
+    private String Ethn_multi; // College Board
+    private String Ethn_nativAm; // College Board
+    private String Ethn_pacificIslr; // College Board
+    private String Ethn_white; // College Board
+    private String Ethn_intenational; // College Board
+    private String Ethn_unknown; // College Board
 // -- My fields
     // Applying (yes/no/interested)
     // Priority of interest
@@ -88,7 +88,7 @@ class University {
     // Application method
 
 //Common App data https://www.commonapp.org/explore/
-    private String commonAppID;
+    private String CommonAppID;
     // Common App ID
     // Common App URL
     // Admissions website
@@ -105,242 +105,242 @@ class University {
         return University.class.getDeclaredFields();
     }
 
-    public String getUrl_univerOnlineApplication() {
-        return url_univerOnlineApplication;
+    public String getUniverOnlineApplicationURL() {
+        return UniverOnlineApplicationURL;
     }
 
-    public void setUrl_univerOnlineApplication(String url_univerOnlineApplication) {
-        this.url_univerOnlineApplication = url_univerOnlineApplication;
+    public void setUniverOnlineApplicationURL(String UniverOnlineApplicationURL) {
+        this.UniverOnlineApplicationURL = UniverOnlineApplicationURL;
     }
 
-    public void setCostAvrgPerYearAfterAid(String costAvrgPerYearAfterAid) {
-        this.costAvrgPerYearAfterAid = costAvrgPerYearAfterAid;
+    public void setCostAvrgPerYearAfterAid(String CostAvrgPerYearAfterAid) {
+        this.CostAvrgPerYearAfterAid = CostAvrgPerYearAfterAid;
     }
 
     public String getCostAvrgPerYearAfterAid() {
-        return costAvrgPerYearAfterAid;
+        return CostAvrgPerYearAfterAid;
     }
 
-    public void setAvrgAidPackage(String avrgAidPackage) {
-        this.avrgAidPackage = avrgAidPackage;
+    public void setAvrgAidPackage(String AvrgAidPackage) {
+        this.AvrgAidPackage = AvrgAidPackage;
     }
 
     public String getAvrgAidPackage() {
-        return avrgAidPackage;
+        return AvrgAidPackage;
     }
    
-    public void setOffersCredits(String offersCredits) {
-        this.offersCredits = offersCredits;
+    public void setOffersCredits(String OffersCredits) {
+        this.OffersCredits = OffersCredits;
     }
 
     public String getOffersCredits() {
-        return offersCredits;
+        return OffersCredits;
     }
 
-    public void setOffersAdvancedPlacements(String offersAdvancedPlacements) {
-        this.offersAdvancedPlacements = offersAdvancedPlacements;
+    public void setOffersAdvancedPlacements(String OffersAdvancedPlacements) {
+        this.OffersAdvancedPlacements = OffersAdvancedPlacements;
     }
 
     public String getOffersAdvancedPlacements() {
-        return offersAdvancedPlacements;
+        return OffersAdvancedPlacements;
     }
 
-    public void setStudentFacultyRatio(String studentFacultyRatio) {
-        this.studentFacultyRatio = studentFacultyRatio;
+    public void setStudentFacultyRatio(String StudentFacultyRatio) {
+        this.StudentFacultyRatio = StudentFacultyRatio;
     }
     public String getStudentFacultyRatio() {
-        return studentFacultyRatio;
+        return StudentFacultyRatio;
     }
 
-    public void setRetentionRate(String retentionRate) {
-        this.retentionRate = retentionRate;
+    public void setRetentionRate(String RetentionRate) {
+        this.RetentionRate = RetentionRate;
     }
     public String getRetentionRate() {
-        return retentionRate;
+        return RetentionRate;
     }
 
     public void addMajorAvailable(String major) {
-        if (majorsAvailable == null) {
-            majorsAvailable = new ArrayList<>();
+        if (MajorsAvailable == null) {
+            MajorsAvailable = new ArrayList<>();
         }
-        majorsAvailable.add(major);
+        MajorsAvailable.add(major);
     }
 
     public String getMajorsAvailable() {
-        return String.join("\n", majorsAvailable); // Convert the List to a newline-separated string
+        return String.join("\n", MajorsAvailable); // Convert the List to a newline-separated string
     }
 
-    public void setMajorsAvailable(List<String> majorsAvailable) { // Update the parameter type to List<String>
-        this.majorsAvailable = majorsAvailable;
+    public void setMajorsAvailable(List<String> MajorsAvailable) { // Update the parameter type to List<String>
+        this.MajorsAvailable = MajorsAvailable;
     }
    
-    public void setRegularAppDue(String regularAppDue) {
-        this.regularAppDue = regularAppDue;
+    public void setRegularAppDueDate(String RegularAppDueDate) {
+        this.RegularAppDueDate = RegularAppDueDate;
     }
     
-    public String getRegularAppDue() {
-        return regularAppDue;
+    public String getRegularAppDueDate() {
+        return RegularAppDueDate;
     }
     
-    public void setEarlyDecisionAppDue(String earlyDecisionAppDue) {
-        this.earlyDecisionAppDue = earlyDecisionAppDue;
+    public void setEarlyDecisionAppDueDate(String EarlyDecisionAppDueDate) {
+        this.EarlyDecisionAppDueDate = EarlyDecisionAppDueDate;
     }
     
-    public String getEarlyDecisionAppDue() {
-        return earlyDecisionAppDue;
+    public String getEarlyDecisionAppDueDate() {
+        return EarlyDecisionAppDueDate;
     }
 
-    public void setEarlyActionAppDue(String earlyActionAppDue) {
-        this.earlyActionAppDue = earlyActionAppDue;
+    public void setEarlyActionAppDueDate(String EarlyActionAppDueDate) {
+        this.EarlyActionAppDueDate = EarlyActionAppDueDate;
     }
 
-    public String getEarlyActionAppDue() {
-        return earlyActionAppDue;
+    public String getEarlyActionAppDueDate() {
+        return EarlyActionAppDueDate;
     }
 
-    public void setUrlUniverWebSite(String urlUniverWebSite) {
-        this.urlUniverWebSite = urlUniverWebSite;
+    public void setUniverWebSiteURL(String UniverWebSiteURL) {
+        this.UniverWebSiteURL = UniverWebSiteURL;
     }
 
-    public String getUrlUniverWebSite() {
-        return urlUniverWebSite;
+    public String getUniverWebSiteURL() {
+        return UniverWebSiteURL;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setPhone(String Phone) {
+        this.Phone = Phone;
     }
 
     public String getPhone() {
-        return phone;
+        return Phone;
     }
 
 
-    public void setSatTotalRange(String satTotalRange) {
-        this.satTotalRange = satTotalRange;
+    public void setSATTotalRange(String SATTotalRange) {
+        this.SATTotalRange = SATTotalRange;
     }
 
-    public String getSatTotalRange() {
-        return satTotalRange;
+    public String getSATTotalRange() {
+        return SATTotalRange;
     }
 
-    public void setSatReadingRange(String satReadingRange) {
-        this.satReadingRange = satReadingRange;
+    public void setSATReadingRange(String SATReadingRange) {
+        this.SATReadingRange = SATReadingRange;
     }
 
-    public String getSatReadingRange() {
-        return satReadingRange;
+    public String getSATReadingRange() {
+        return SATReadingRange;
     }
 
-    public void setSatMathRange(String satMathRange) {
-        this.satMathRange = satMathRange;
+    public void setSATMathRange(String SATMathRange) {
+        this.SATMathRange = SATMathRange;
     }
 
-    public String getSatMathRange() {
-        return satMathRange;
+    public String getSATMathRange() {
+        return SATMathRange;
     }
 
-    public void setAcceptanceRate(String acceptanceRate) {
-        this.acceptanceRate = acceptanceRate;
+    public void setAcceptanceRate(String AcceptanceRate) {
+        this.AcceptanceRate = AcceptanceRate;
     }
 
     public String getAcceptanceRate() {
-        return acceptanceRate;
+        return AcceptanceRate;
     }
 
-    public void setTotalApplicants(String totalApplicants) {
-        this.totalApplicants = totalApplicants;
+    public void setApplicantsTotal(String ApplicantsTotal) {
+        this.ApplicantsTotal = ApplicantsTotal;
     }
 
-    public String getTotalApplicants() {
-        return totalApplicants;
+    public String getApplicantsTotal() {
+        return ApplicantsTotal;
     }
 
-    public void setAdmittedAppl(String admittedAppl) {
-        this.admittedAppl = admittedAppl;
+    public void setApplicantsAdmitted(String ApplicantsAdmitted) {
+        this.ApplicantsAdmitted = ApplicantsAdmitted;
     }
 
-    public String getAdmittedAppl() {
-        return admittedAppl;
+    public String getApplicantsAdmitted() {
+        return ApplicantsAdmitted;
     }
 
-    public void setEnrolledAppl(String enrolledAppl) {
-        this.enrolledAppl = enrolledAppl;
+    public void setApplicantsEnrolled(String ApplicantsEnrolled) {
+        this.ApplicantsEnrolled = ApplicantsEnrolled;
     }
 
-    public String getEnrolledAppl() {
-        return enrolledAppl;
+    public String getApplicantsEnrolled() {
+        return ApplicantsEnrolled;
     }
 
-    public void setApplFee(String applFee) {
-        this.applFee = applFee;
+    public void setApplicationFee(String ApplicationFee) {
+        this.ApplicationFee = ApplicationFee;
     }
 
-    public String getApplFee() {
-        return applFee;
+    public String getApplicationFee() {
+        return ApplicationFee;
     }
 
-    public void setStudentsReceivFinAid(String studentsReceivFinAid) {
-        this.studentsReceivFinAid = studentsReceivFinAid;
+    public void setStudentsReceivFinAid(String StudentsReceivFinAid) {
+        this.StudentsReceivFinAid = StudentsReceivFinAid;
     }
 
     public String getStudentsReceivFinAid() {
-        return studentsReceivFinAid;
+        return StudentsReceivFinAid;
     }
 
-    public void setcostInStateFull(String costInStateFull) {
-        this.costInStateFull = costInStateFull;
+    public void setCostInStateFull(String CostInStateFull) {
+        this.CostInStateFull = CostInStateFull;
     }
 
-    public String getcostInStateFull() {
-        return costInStateFull;
+    public String getCostInStateFull() {
+        return CostInStateFull;
     }
 
-    public void setcostOutOfStateFull(String costOutOfStateFull) {
-        this.costOutOfStateFull = costOutOfStateFull;
+    public void setCostOutOfStateFull(String CostOutOfStateFull) {
+        this.CostOutOfStateFull = CostOutOfStateFull;
     }
 
-    public String getcostOutOfStateFull() {
-        return costOutOfStateFull;
+    public String getCostOutOfStateFull() {
+        return CostOutOfStateFull;
     }
 
-    public void setCostFor110kHHIncome(String costFor110kHHIncome) {
-        this.costFor110kHHIncome = costFor110kHHIncome;
+    public void setCostFor110kHHIncome(String CostFor110kHHIncome) {
+        this.CostFor110kHHIncome = CostFor110kHHIncome;
     }
 
     public String getCostFor110kHHIncome() {
-        return costFor110kHHIncome;
+        return CostFor110kHHIncome;
     }
 
-    public void setCostHousing(String costHousing) {
-        this.costHousing = costHousing;
+    public void setCostHousing(String CostHousing) {
+        this.CostHousing = CostHousing;
     }
 
     public String getCostHousing() {
-        return costHousing;
+        return CostHousing;
     }
 
-    public void setCostBooksSuppl(String costBooksSuppl) {
-        this.costBooksSuppl = costBooksSuppl;
+    public void setCostBooksSuppl(String CostBooksSuppl) {
+        this.CostBooksSuppl = CostBooksSuppl;
     }
 
     public String getCostBooksSuppl() {
-        return costBooksSuppl;
+        return CostBooksSuppl;
     }
 
-    public void setCostTransportation(String costTransportation) {
-        this.costTransportation = costTransportation;
+    public void setCostTransportation(String CostTransportation) {
+        this.CostTransportation = CostTransportation;
     }
 
     public String getCostTransportation() {
-        return costTransportation;
+        return CostTransportation;
     }
 
-    public void setUnderGradStudents(String underGradStudents) {
-        this.underGradStudents = underGradStudents;
+    public void setUnderGradStudents(String UnderGradStudents) {
+        this.UnderGradStudents = UnderGradStudents;
     }
 
     public String getUnderGradStudents() {
-        return underGradStudents;
+        return UnderGradStudents;
     }
     private List<String> raceProfile;
     private List<String> avrgNetPriceByHHincom;
@@ -359,251 +359,235 @@ class University {
         return avrgNetPriceByHHincom;
     }
 
-    public void setUrlCollegeBoard(String urlCollegeBoard) {
-        this.urlCollegeBoard = urlCollegeBoard;
+    public void setURLCollegeBoard(String URLCollegeBoard) {
+        this.URLCollegeBoard = URLCollegeBoard;
     }
     
-    public String getUrlCollegeBoard() {
-        return urlCollegeBoard;
+    public String getURLCollegeBoard() {
+        return URLCollegeBoard;
     }
     
-    public void setUniverName(String univerName) {
-        this.univerName = univerName;
+    public void setUniverName(String UniverName) {
+        this.UniverName = UniverName;
     }
     
     public String getUniverName() {
-        return univerName;
+        return UniverName;
     }
     
-    public void setAddress(String address) {
-        this.address = address;
+    public void setAddress(String Address) {
+        this.Address = Address;
     }
     
     public String getAddress() {
-        return address;
+        return Address;
     }
-    public void setMapLink(String mapLink) {
-        this.mapLink = mapLink;
+    public void setMapLink(String MapLink) {
+        this.MapLink = MapLink;
     }
 
     public String getMapLink() {
-        return mapLink;
+        return MapLink;
     }
-    public void setCity(String city) {
-        this.city = city;
+    public void setCity(String City) {
+        this.City = City;
     }
 
     public String getCity() {
-        return city;
+        return City;
     }
 
-    public void setState(String state) {
-        this.state = state;
+    public void setState(String State) {
+        this.State = State;
     }
 
     public String getState() {
-        return state;
+        return State;
     }
-    public void setSchoolTypeByYears(String schoolTypeByYears) {
-        this.schoolTypeByYears = schoolTypeByYears;
-    }
-    
-    public String getSchoolTypeByYears() {
-        return schoolTypeByYears;
+    public void setUniverTypeByYears(String UniverTypeByYears) {
+        this.UniverTypeByYears = UniverTypeByYears;
     }
     
-    public void setSchoolTypeByDesignation(String schoolTypeByDesignation) {
-        this.schoolTypeByDesignation = schoolTypeByDesignation;
+    public String getUniverTypeByYears() {
+        return UniverTypeByYears;
     }
     
-    public String getSchoolTypeByDesignation() {
-        return schoolTypeByDesignation;
+    public void setUniverTypeByDesignation(String UniverTypeByDesignation) {
+        this.UniverTypeByDesignation = UniverTypeByDesignation;
     }
     
-    public void setSchoolSize(String schoolSize) {
-        this.schoolSize = schoolSize;
+    public String getUniverTypeByDesignation() {
+        return UniverTypeByDesignation;
     }
     
-    public String getSchoolSize() {
-        return schoolSize;
+    public void setUniverSize(String UniverSize) {
+        this.UniverSize = UniverSize;
     }
     
-    public void setSchoolSetting(String schoolSetting) {
-        this.schoolSetting = schoolSetting;
+    public String getUniverSize() {
+        return UniverSize;
     }
     
-    public String getSchoolSetting() {
-        return schoolSetting;
+    public void setUniverSetting(String UniverSetting) {
+        this.UniverSetting = UniverSetting;
     }
     
-    public void setGraduationRate(String graduationRate) {
-        this.graduationRate = graduationRate;
+    public String getUniverSetting() {
+        return UniverSetting;
+    }
+    
+    public void setGraduationRate(String GraduationRate) {
+        this.GraduationRate = GraduationRate;
     }
     
     public String getGraduationRate() {
-        return graduationRate;
+        return GraduationRate;
     }
     
-    public void setSatScoreRange(String satScoreRange) {
-        this.satScoreRange = satScoreRange;
+    public void setSATScoreRange(String SATScoreRange) {
+        this.SATScoreRange = SATScoreRange;
     }
     
-    public String getSatScoreRange() {
-        return satScoreRange;
+    public String getSATScoreRange() {
+        return SATScoreRange;
     }
     public University() {
         //TODO Auto-generated constructor stub
     }
 
-    public void setMajorsCount(String majorsCount) {
-        this.majorsCount = majorsCount;
+    public void setMajorsCount(String MajorsCount) {
+        this.MajorsCount = MajorsCount;
     }
 
     public String getMajorsCount() {
-        return majorsCount;
+        return MajorsCount;
     }
 
-    public void setCollegeBoardCode(String collegeBoardCode) {
-        this.collegeBoardCode = collegeBoardCode;
+    public void setCollegeBoardCode(String CollegeBoardCode) {
+        this.CollegeBoardCode = CollegeBoardCode;
     }
 
     public String getCollegeBoardCode() {
-        return collegeBoardCode;
+        return CollegeBoardCode;
     }
 
-    public void setFirstYearsInCollegeHousing(String firstYearsInCollegeHousing) {
-        this.firstYearsInCollegeHousing = firstYearsInCollegeHousing;
+    public void setFirstYearsInCollegeHousing(String FirstYearsInCollegeHousing) {
+        this.FirstYearsInCollegeHousing = FirstYearsInCollegeHousing;
     }
 
     public String getFirstYearsInCollegeHousing() {
-        return firstYearsInCollegeHousing;
-    }
-
-    public String getCostInStateFull() {
-        return costInStateFull;
-    }
-
-    public void setCostInStateFull(String costInStateFull) {
-        this.costInStateFull = costInStateFull;
-    }
-
-    public String getCostOutOfStateFull() {
-        return costOutOfStateFull;
-    }
-
-    public void setCostOutOfStateFull(String costOutOfStateFull) {
-        this.costOutOfStateFull = costOutOfStateFull;
+        return FirstYearsInCollegeHousing;
     }
 
     public String getGraduateStudents() {
-        return graduateStudents;
+        return GraduateStudents;
     }
 
-    public void setGraduateStudents(String graduateStudents) {
-        this.graduateStudents = graduateStudents;
+    public void setGraduateStudents(String GraduateStudents) {
+        this.GraduateStudents = GraduateStudents;
     }
 
     public String getFullTimeStudents() {
-        return fullTimeStudents;
+        return FullTimeStudents;
     }
 
-    public void setFullTimeStudents(String fullTimeStudents) {
-        this.fullTimeStudents = fullTimeStudents;
+    public void setFullTimeStudents(String FullTimeStudents) {
+        this.FullTimeStudents = FullTimeStudents;
     }
 
     public String getPartTimeStudents() {
-        return partTimeStudents;
+        return PartTimeStudents;
     }
 
-    public void setPartTimeStudents(String partTimeStudents) {
-        this.partTimeStudents = partTimeStudents;
+    public void setPartTimeStudents(String PartTimeStudents) {
+        this.PartTimeStudents = PartTimeStudents;
     }
 
-    public String getPriRes_OutState() {
-        return priRes_OutState;
+    public String getPrimaryResidenceOutOfState() {
+        return PrimaryResidenceOutOfState;
     }
 
-    public void setPriRes_OutState(String priRes_OutState) {
-        this.priRes_OutState = priRes_OutState;
+    public void setPrimaryResidenceOutOfState(String PrimaryResidenceOutOfState) {
+        this.PrimaryResidenceOutOfState = PrimaryResidenceOutOfState;
     }
 
     public String getEthn_black() {
-        return ethn_black;
+        return Ethn_black;
     }
 
-    public void setEthn_black(String ethn_black) {
-        this.ethn_black = ethn_black;
+    public void setEthn_black(String Ethn_black) {
+        this.Ethn_black = Ethn_black;
     }
 
     public String getEthn_asians() {
-        return ethn_asians;
+        return Ethn_asians;
     }
 
-    public void setEthn_asians(String ethn_asians) {
-        this.ethn_asians = ethn_asians;
+    public void setEthn_asians(String Ethn_asians) {
+        this.Ethn_asians = Ethn_asians;
     }
 
     public String getEthn_hispanics() {
-        return ethn_hispanics;
+        return Ethn_hispanics;
     }
 
-    public void setEthn_hispanics(String ethn_hispanics) {
-        this.ethn_hispanics = ethn_hispanics;
+    public void setEthn_hispanics(String Ethn_hispanics) {
+        this.Ethn_hispanics = Ethn_hispanics;
     }
 
     public String getEthn_multi() {
-        return ethn_multi;
+        return Ethn_multi;
     }
 
-    public void setEthn_multi(String ethn_multi) {
-        this.ethn_multi = ethn_multi;
+    public void setEthn_multi(String Ethn_multi) {
+        this.Ethn_multi = Ethn_multi;
     }
 
     public String getEthn_nativAm() {
-        return ethn_nativAm;
+        return Ethn_nativAm;
     }
 
-    public void setEthn_nativAm(String ethn_nativAm) {
-        this.ethn_nativAm = ethn_nativAm;
+    public void setEthn_nativAm(String Ethn_nativAm) {
+        this.Ethn_nativAm = Ethn_nativAm;
     }
 
     public String getEthn_pacificIslr() {
-        return ethn_pacificIslr;
+        return Ethn_pacificIslr;
     }
 
-    public void setEthn_pacificIslr(String ethn_pacificIslr) {
-        this.ethn_pacificIslr = ethn_pacificIslr;
+    public void setEthn_pacificIslr(String Ethn_pacificIslr) {
+        this.Ethn_pacificIslr = Ethn_pacificIslr;
     }
 
     public String getEthn_white() {
-        return ethn_white;
+        return Ethn_white;
     }
 
-    public void setEthn_white(String ethn_white) {
-        this.ethn_white = ethn_white;
+    public void setEthn_white(String Ethn_white) {
+        this.Ethn_white = Ethn_white;
     }
 
     public String getEthn_intenational() {
-        return ethn_intenational;
+        return Ethn_intenational;
     }
 
-    public void setEthn_intenational(String ethn_intenational) {
-        this.ethn_intenational = ethn_intenational;
+    public void setEthn_intenational(String Ethn_intenational) {
+        this.Ethn_intenational = Ethn_intenational;
     }
 
     public String getEthn_unknown() {
-        return ethn_unknown;
+        return Ethn_unknown;
     }
 
-    public void setEthn_unknown(String ethn_unknown) {
-        this.ethn_unknown = ethn_unknown;
+    public void setEthn_unknown(String Ethn_unknown) {
+        this.Ethn_unknown = Ethn_unknown;
     }
 
     public String getCostPersonalExpenses() {
-        return costPersonalExpenses;
+        return CostPersonalExpenses;
     }
 
-    public void setCostPersonalExpenses(String costPersonalExpenses) {
-        this.costPersonalExpenses = costPersonalExpenses;
+    public void setCostPersonalExpenses(String CostPersonalExpenses) {
+        this.CostPersonalExpenses = CostPersonalExpenses;
     }
   }

@@ -13,12 +13,12 @@ public class CBAdmissions
     public static void main( String[] args ) throws InterruptedException
     {
     }
-    public static void univerCBAdmissions(String urlCollegeBoard, WebDriver driver, University university) throws InterruptedException {
-        urlCollegeBoard = university.getUrlCollegeBoard();
-        if (urlCollegeBoard == null || urlCollegeBoard.isEmpty()) {
+    public static void univerCBAdmissions(String URLCollegeBoard, WebDriver driver, University university) throws InterruptedException {
+        URLCollegeBoard = university.getURLCollegeBoard();
+        if (URLCollegeBoard == null || URLCollegeBoard.isEmpty()) {
             return;
         }
-        driver.get(urlCollegeBoard + "/admissions");
+        driver.get(URLCollegeBoard + "/admissions");
         // Wait for the page to load
         Thread.sleep(2000);
        
@@ -26,16 +26,16 @@ public class CBAdmissions
         WebElement regularApplicationElement = driver.findElement(By.xpath("//div[text()='Regular Application Due']/following-sibling::div"));
         String regularApplication = regularApplicationElement.getText();
         System.out.println("Regular Application Date: " + regularApplication);
-        university.setRegularAppDue(regularApplication.trim());
+        university.setRegularAppDueDate(regularApplication.trim());
     } catch (NoSuchElementException e) {
         System.out.println("Regular Application Date not found");
     }
        
         try {
-            WebElement totalApplicantsElement = driver.findElement(By.xpath("//div[text()='Total Applicants']/following-sibling::div"));
-            String totalApplicants = totalApplicantsElement.getText();
-            // System.out.println("Total Applicants: " + totalApplicants);
-            university.setTotalApplicants(totalApplicants.trim());
+            WebElement ApplicantsTotalElement = driver.findElement(By.xpath("//div[text()='Total Applicants']/following-sibling::div"));
+            String ApplicantsTotal = ApplicantsTotalElement.getText();
+            // System.out.println("Total Applicants: " + ApplicantsTotal);
+            university.setApplicantsTotal(ApplicantsTotal.trim());
         } catch (NoSuchElementException e) {
             System.out.println("Total Applicants not found");
         }
@@ -43,7 +43,7 @@ public class CBAdmissions
             WebElement admittedElement = driver.findElement(By.xpath("//div[text()='Admitted']/following-sibling::div"));
             String admitted = admittedElement.getText();
             // System.out.println("Admitted Applicants: " + admitted);
-            university.setAdmittedAppl(admitted.trim());
+            university.setApplicantsAdmitted(admitted.trim());
         } catch (NoSuchElementException e) {
             System.out.println("Admitted Applicants not found");
         }
@@ -51,22 +51,22 @@ public class CBAdmissions
             WebElement enrolledElement = driver.findElement(By.xpath("//div[text()='Enrolled']/following-sibling::div"));
             String enrolled = enrolledElement.getText();
             // System.out.println("Enrolled applicants: " + enrolled);
-            university.setEnrolledAppl(enrolled.trim());
+            university.setApplicantsEnrolled(enrolled.trim());
         } catch (NoSuchElementException e) {
             System.out.println("Enrolled applicants not found");
         }
         try {
             String univerWebsite = driver.findElement(By.xpath("//a[contains(text(), 'visiting the college website')]")).getAttribute("href");
             // System.out.println("UniverWebsite: " + univerWebsite);
-            university.setUrlUniverWebSite(univerWebsite);
+            university.setUniverWebSiteURL(univerWebsite);
         } catch (NoSuchElementException e) {
             System.out.println("College website not found");
         }
        
         try {
-            String acceptanceRate = driver.findElement(By.xpath("//div[text()='Acceptance Rate']/following-sibling::div")).getText();
-            // System.out.println("Acceptance Rate: " + acceptanceRate);
-            university.setAcceptanceRate(acceptanceRate);
+            String AcceptanceRate = driver.findElement(By.xpath("//div[text()='Acceptance Rate']/following-sibling::div")).getText();
+            // System.out.println("Acceptance Rate: " + AcceptanceRate);
+            university.setAcceptanceRate(AcceptanceRate);
         } catch (NoSuchElementException e) {
             System.out.println("Acceptance Rate not found");
         }
@@ -74,7 +74,7 @@ public class CBAdmissions
             WebElement feeElement = driver.findElement(By.cssSelector(".cs-label-value-pair-value.cs-application-process-application-fee"));
             String fee = feeElement.getText();
             // System.out.println("Application Fee: " + fee);
-            university.setApplFee(fee);
+            university.setApplicationFee(fee);
         } catch (NoSuchElementException e) {
             System.out.println("Application Fee not found");
         }
@@ -93,15 +93,15 @@ public class CBAdmissions
                     String score = matcher.group(2).trim();
                     switch (discipline) {
                         case "composite":
-                            university.setSatTotalRange(score);
+                            university.setSATTotalRange(score);
                             // System.out.println("SAT Composite: " + score);
                             break;
                         case "reading":
-                            university.setSatReadingRange(score);
+                            university.setSATReadingRange(score);
                             // System.out.println("SAT Reading: " + score);
                             break;
                         case "math":
-                            university.setSatMathRange(score);
+                            university.setSATMathRange(score);
                             // System.out.println("SAT Math: " + score);
                             break;
                         default:

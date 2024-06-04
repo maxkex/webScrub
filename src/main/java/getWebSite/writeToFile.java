@@ -24,7 +24,7 @@ public class writeToFile {
         universityData[0] = new University();
         universityData[0].setUniverName("University of California, Davis");
         universityData[0].setCollegeBoardCode("4834");
-        universityData[0].setUrlCollegeBoard("https://bigfuture.collegeboard.org/colleges/university-of-california-davis");
+        universityData[0].setURLCollegeBoard("https://bigfuture.collegeboard.org/colleges/university-of-california-davis");
 
         String path = "./data/";
         String excelFileName = "universityData.xlsx";
@@ -89,12 +89,12 @@ public class writeToFile {
             Integer rowIndex = headerRow+1; // Index of the first data row
             for (University uD : universityData) {
                 Method m = University.class.getMethod("getUniverName");
-                Field fld = University.class.getDeclaredField("univerName");
+                Field fld = University.class.getDeclaredField("UniverName");
                 System.out.println("University-fld: " + (String) fld.get(uD));
                 System.out.println("University-m.invoke: " + m.invoke(uD));
                 System.out.println("University: " + uD.getUniverName());
                 System.out.println("College Board Code: " + uD.getCollegeBoardCode());
-                System.out.println("URL College Board: " + uD.getUrlCollegeBoard());
+                System.out.println("URL College Board: " + uD.getURLCollegeBoard());
             }
             for (Field field : University.class.getDeclaredFields()) {
                 Integer colIdx = getColmnID(field.getName());

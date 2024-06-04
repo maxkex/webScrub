@@ -12,11 +12,11 @@ public class CBSearchGetSchools
     public static void main( String[] args ) throws InterruptedException
     {
     }
-    public static Integer search(String urlCollegeBoard, WebDriver driver) throws InterruptedException {
-        if (urlCollegeBoard == null) {
+    public static Integer search(String URLCollegeBoard, WebDriver driver) throws InterruptedException {
+        if (URLCollegeBoard == null) {
             return(0);
         }
-        driver.get(urlCollegeBoard);
+        driver.get(URLCollegeBoard);
         // Wait for the page to load
         Thread.sleep(2000);
         try {
@@ -74,77 +74,77 @@ public class CBSearchGetSchools
         University currUniver = universityData[udInx];
 
         try {
-            String urlCollegeBoard = univElement.findElement(By.cssSelector(".cs-college-card-container a")).getAttribute("href");
-            currUniver.setUrlCollegeBoard(urlCollegeBoard);
+            String URLCollegeBoard = univElement.findElement(By.cssSelector(".cs-college-card-container a")).getAttribute("href");
+            currUniver.setURLCollegeBoard(URLCollegeBoard);
         } catch (NoSuchElementException e) {
             System.out.println("URL CollegeBoard not found");
         }
 
         try {
-            String univerName = univElement.findElement(By.cssSelector(".cs-college-card-college-name span")).getText();
-            currUniver.setUniverName(univerName);
+            String UniverName = univElement.findElement(By.cssSelector(".cs-college-card-college-name span")).getText();
+            currUniver.setUniverName(UniverName);
         } catch (NoSuchElementException e) {
            System.out.println("University Name not found");
         }
-        String univerName = currUniver.getUniverName();
-        String eaURL = currUniver.getUrlCollegeBoard();
-        System.out.println("~~~~~~~~| " + univerName + " |~~~~~" + "\n" + eaURL);
+        String UniverName = currUniver.getUniverName();
+        String eaURL = currUniver.getURLCollegeBoard();
+        System.out.println("~~~~~~~~| " + UniverName + " |~~~~~" + "\n" + eaURL);
 
         try {
-            String addr = univElement.findElement(By.cssSelector("[data-testid='cs-college-card-college-address']")).getText();
+            String addr = univElement.findElement(By.cssSelector("[data-testid='cs-college-card-college-Address']")).getText();
             String[] parts = addr.split(",");
-            String city = parts[0].trim();
-            String state = parts[1].trim();
-           // System.out.println("City: " + city);
-           // System.out.println("State: " + state);
-            currUniver.setCity(city);
-            currUniver.setState(state);
+            String City = parts[0].trim();
+            String State = parts[1].trim();
+           // System.out.println("City: " + City);
+           // System.out.println("State: " + State);
+            currUniver.setCity(City);
+            currUniver.setState(State);
         } catch (NoSuchElementException e) {
             System.out.println("Address not found");
         }
 
         try {
-            String schoolTypeByYears = univElement.findElement(By.cssSelector("[data-testid='cs-college-card-details-profile-school-type-by-years']")).getText();
-            currUniver.setSchoolTypeByYears(schoolTypeByYears);
+            String UniverTypeByYears = univElement.findElement(By.cssSelector("[data-testid='cs-college-card-details-profile-school-type-by-years']")).getText();
+            currUniver.setUniverTypeByYears(UniverTypeByYears);
         } catch (NoSuchElementException e) {
             System.out.println("School Type (Years) not found");
         }
 
         try {
-            String schoolTypeByDesignation = univElement.findElement(By.cssSelector("[data-testid='cs-college-card-details-profile-school-type-by-designation']")).getText();
-            currUniver.setSchoolTypeByDesignation(schoolTypeByDesignation);
+            String UniverTypeByDesignation = univElement.findElement(By.cssSelector("[data-testid='cs-college-card-details-profile-school-type-by-designation']")).getText();
+            currUniver.setUniverTypeByDesignation(UniverTypeByDesignation);
         } catch (NoSuchElementException e) {
             System.out.println("School Type (Designation) not found");
         }
 
         try {
-            String schoolSize = univElement.findElement(By.cssSelector("[data-testid='cs-college-card-details-profile-school-size']")).getText();
-            currUniver.setSchoolSize(schoolSize);
+            String UniverSize = univElement.findElement(By.cssSelector("[data-testid='cs-college-card-details-profile-school-size']")).getText();
+            currUniver.setUniverSize(UniverSize);
         } catch (NoSuchElementException e) {
             System.out.println("School Size not found");
         }
 
         try {
-            String schoolSetting = univElement.findElement(By.cssSelector("[data-testid='cs-college-card-details-profile-school-setting']")).getText();
-            currUniver.setSchoolSetting(schoolSetting);
+            String UniverSetting = univElement.findElement(By.cssSelector("[data-testid='cs-college-card-details-profile-school-setting']")).getText();
+            currUniver.setUniverSetting(UniverSetting);
         } catch (NoSuchElementException e) {
             System.out.println("School Setting not found");
         }
 
         try {
-            String graduationRate = univElement.findElement(By.cssSelector("[data-testid='cs-college-card-details-profile-school-graduation-rate'] strong")).getText();
-            currUniver.setGraduationRate(graduationRate);
+            String GraduationRate = univElement.findElement(By.cssSelector("[data-testid='cs-college-card-details-profile-school-graduation-rate'] strong")).getText();
+            currUniver.setGraduationRate(GraduationRate);
         } catch (NoSuchElementException e) {
             System.out.println("Graduation Rate not found");
         }
     
-        String satScoreRange = "";
+        String SATScoreRange = "";
         try {
-            satScoreRange = univElement.findElement(By.cssSelector("[data-testid='cs-college-card-details-profile-school-sat-range'] span")).getText();
+            SATScoreRange = univElement.findElement(By.cssSelector("[data-testid='cs-college-card-details-profile-school-sat-range'] span")).getText();
         } catch (NoSuchElementException e) {
-            satScoreRange = univElement.findElement(By.cssSelector("[data-testid='cs-college-card-details-profile-school-sat-range'] strong")).getText();
+            SATScoreRange = univElement.findElement(By.cssSelector("[data-testid='cs-college-card-details-profile-school-sat-range'] strong")).getText();
         }
-         currUniver.setSatScoreRange(satScoreRange);
+         currUniver.setSATScoreRange(SATScoreRange);
     
         udInx--;
     } 
