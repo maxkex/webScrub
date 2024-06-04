@@ -80,7 +80,7 @@ public class SCOIR
             }
             System.out.println(tblColms);
             // add extracted values to the university record
-            for (int i = 0; i < tblColms.size(); i++) {
+            for (Integer i = 0; i < tblColms.size(); i++) {
                 String columnName = tblColms.get(i);
                 String columnValue = tblColms.get(++i);
                 uRow.put(columnName, columnValue);

@@ -3,7 +3,7 @@ import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.util.CellAddress;
 
 public class columnMap {
-        private int columnIndex;
+        private Integer columnIndex;
         private CellAddress cellAddress;
         private Cell cellObj;
         private String fileColmName;
@@ -12,7 +12,7 @@ public class columnMap {
     public columnMap() {
     }
 
-    public columnMap(int columnIndex, CellAddress cellAddress, Cell cellObj, String fileColmName, String univerColmID) {
+    public columnMap(Integer columnIndex, CellAddress cellAddress, Cell cellObj, String fileColmName, String univerColmID) {
         this.cellAddress = cellAddress;
         this.cellObj = cellObj;
         this.columnIndex = columnIndex;
@@ -28,11 +28,11 @@ public class columnMap {
         this.cellObj = cellObj;
     }
 
-    public int getColumnIndex() {
+    public Integer getColumnIndex() {
         return columnIndex;
     }
 
-    public void setColumnIndex(int columnIndex) {
+    public void setColumnIndex(Integer columnIndex) {
         this.columnIndex = columnIndex;
     }
 

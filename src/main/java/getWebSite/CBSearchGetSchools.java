@@ -64,8 +64,8 @@ public class CBSearchGetSchools
         }
     }
     List<WebElement> univElements = driver.findElements(By.className("cs-college-card-outer-container"));
-    int countOfUnivrFound = univElements.size();
-    int udInx=countOfUnivrFound-1;
+    Integer countOfUnivrFound = univElements.size();
+    Integer udInx=countOfUnivrFound-1;
    // System.out.println("Universities found: " + countOfUnivrFound);
     
 
