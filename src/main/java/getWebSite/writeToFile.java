@@ -18,7 +18,9 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class writeToFile {
     private static List<columnMap> columnMap = new ArrayList<>();
-    public static void main(String[] args) throws IOException, NoSuchMethodException, NoSuchFieldException {
+    private static Field[] UniverFields = University.class.getDeclaredFields();
+
+    public static void main(String[] args) throws IOException{
         //test code
         University[] universityData = new University[1]; 
         universityData[0] = new University();
@@ -57,7 +59,7 @@ public class writeToFile {
         // mathch file columps with university columns
         for (columnMap cR : columnMap) {
 
-                for (Field field : University.class.getDeclaredFields()) {
+                for (Field field : UniverFields) {
                     Integer col = getColmnID(field.getName());
                     System.out.println("Col " + col + " Field: " + field.getName());
                 }
@@ -73,13 +75,13 @@ public class writeToFile {
     private static Integer getColmnID(String colmnName) {
         Integer colmnID = null;
         for (columnMap h : columnMap) {
-            if (h.getFileColmName().equals(colmnName)) {
+            if (h.getFileColmName().toLowerCase().equals(colmnName.toLowerCase())) {
                 colmnID = h.getColumnIndex();
             }
         }
         return colmnID;
     }
-    public static void readExcelFile(String excelFile2Read, String sheetName , Integer headerRow, Integer headerColumn, University[] universityData) throws NoSuchMethodException, NoSuchFieldException, SecurityException {
+    public static void readExcelFile(String excelFile2Read, String sheetName , Integer headerRow, Integer headerColumn, University[] universityData) {
         
         try {
             FileInputStream fileIn = new FileInputStream(excelFile2Read);
@@ -87,18 +89,39 @@ public class writeToFile {
             Sheet sh = workbook.getSheet(sheetName);
             System.out.println("Sheet name: " + sh.getSheetName());
             Integer rowIndex = headerRow+1; // Index of the first data row
+
+            //ieterate trough each university from webscrabing
             for (University uD : universityData) {
-                Method m = University.class.getMethod("getUniverName");
-                Field fld = University.class.getDeclaredField("UniverName");
-                System.out.println("University-fld: " + (String) fld.get(uD));
-                System.out.println("University-m.invoke: " + m.invoke(uD));
-                System.out.println("University: " + uD.getUniverName());
-                System.out.println("College Board Code: " + uD.getCollegeBoardCode());
-                System.out.println("URL College Board: " + uD.getURLCollegeBoard());
-            }
-            for (Field field : University.class.getDeclaredFields()) {
-                Integer colIdx = getColmnID(field.getName());
-                //System.out.println("Field: " + field.getName() + " Col: " + colIdx);
+                mapHeader(sh.getRow(headerRow)); // Map the header columns for passed heaer row in the sheet form the file
+                
+                // iterate over each column on the webscrabed data
+                for (Field field : UniverFields) {
+                    Integer cID = null; // Column ID if found in the header (exists in the file)
+                    String fName = field.getName();
+                    String mName = "get"+fName;
+                    try {
+                        Method m = University.class.getMethod(mName);
+                        System.out.println(mName + " : " + m.invoke(uD));  
+                        cID = getColmnID(fName);       
+                        System.out.println("Column ID: " + cID);
+                        // write data to the cell, if column ID is found in the header
+                        if (cID != null) {
+                            Row currentRow = sh.getRow(rowIndex);
+                            Cell currentCell = currentRow.getCell(cID);
+                            try {   
+                            String cellValue = currentCell.getStringCellValue();
+                            System.out.print("Row: " + rowIndex + "| "+ cellValue + " |\n");
+                               //m.invoke(uD, cellValue);
+                            } catch (NullPointerException e) {
+                                System.out.println("Blank cell found at row: " + currentCell.getAddress());
+                                //break;
+                            } 
+                        }
+                    } catch (NoSuchMethodException | SecurityException | IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
+                        //e.printStackTrace();
+                        System.out.println('"' + mName + '"' +" method not found");
+                    }                 
+                }
             }
         //cR.printLn();
 
@@ -118,10 +141,9 @@ public class writeToFile {
             workbook.close();
             fileIn.close();
             System.out.println("Excel file read successfully.");
-        } catch (IOException e) {
-            System.out.println("An error occurred while reading from Excel file: " + e.getMessage());
-        } catch (IllegalAccessException ex) {
-        } catch (InvocationTargetException ex) {
-        }
+
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
     }
 }

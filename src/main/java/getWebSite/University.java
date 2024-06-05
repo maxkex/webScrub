@@ -6,7 +6,7 @@ import java.util.List;
 
 class University {
 // search page data
-    public String UniverName; // College Board
+    private String UniverName; // College Board
     private String UniverURLfriendly; // url for spreashees: UniverName + university admissions page
     private String City; // College Board
     private String State; // College Board
@@ -341,22 +341,6 @@ class University {
 
     public String getUnderGradStudents() {
         return UnderGradStudents;
-    }
-    private List<String> raceProfile;
-    private List<String> avrgNetPriceByHHincom;
-
-    public void setRaceProfile(List<String> raceProfile) {
-        this.raceProfile = raceProfile;
-    }
-    public List<String> getRaceProfile() {
-        return raceProfile;
-    }
-    public void setAvrgNetPriceByHHincom(List<String> avrgNetPriceByHHincom) {
-        this.avrgNetPriceByHHincom = avrgNetPriceByHHincom;
-    }
-
-    public List<String> getAvrgNetPriceByHHincom() {
-        return avrgNetPriceByHHincom;
     }
 
     public void setURLCollegeBoard(String URLCollegeBoard) {
