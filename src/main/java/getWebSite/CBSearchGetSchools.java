@@ -46,7 +46,7 @@ public class CBSearchGetSchools
         // Scroll down to the "Show More Colleges" button
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].scrollIntoView(false);", showMoreButton);
-        Thread.sleep(1500);
+        Thread.sleep(2000);
         // Click the "Show More Colleges" button
         try {
             showMoreButton = driver.findElement(By.cssSelector("button[data-testid='cs-show-more-results']"));
@@ -56,7 +56,7 @@ public class CBSearchGetSchools
             break;
         }
     
-        Thread.sleep(1600);
+        Thread.sleep(2000);
         try {
             isShowMoreButtonDisplayed = showMoreButton.isDisplayed();
         } catch (Exception e) {
@@ -91,7 +91,7 @@ public class CBSearchGetSchools
         System.out.println("~~~~~~~~| " + UniverName + " |~~~~~" + "\n" + eaURL);
 
         try {
-            String addr = univElement.findElement(By.cssSelector("[data-testid='cs-college-card-college-Address']")).getText();
+            String addr = univElement.findElement(By.cssSelector("[data-testid='cs-college-card-college-address']")).getText();
             String[] parts = addr.split(",");
             String City = parts[0].trim();
             String State = parts[1].trim();

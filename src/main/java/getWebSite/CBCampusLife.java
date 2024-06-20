@@ -121,7 +121,7 @@ public class CBCampusLife
             System.out.println("element International (Non-Citizen) Students not found");
         }
         try {
-            String outOfStateStudents = driver.findElement(By.id("csp-list-item-out-of-State-value")).getText();
+            String outOfStateStudents = driver.findElement(By.id("csp-list-item-out-of-state-value")).getText();
             // System.out.println("Out-of-State Students: " + outOfStateStudents);
             university.setPrimaryResidenceOutOfState(outOfStateStudents);
         } catch (NoSuchElementException e) {

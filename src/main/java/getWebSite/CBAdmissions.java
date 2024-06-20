@@ -58,7 +58,8 @@ public class CBAdmissions
         try {
             String univerWebsite = driver.findElement(By.xpath("//a[contains(text(), 'visiting the college website')]")).getAttribute("href");
             // System.out.println("UniverWebsite: " + univerWebsite);
-            university.setUniverWebSiteURL(univerWebsite);
+            String UniverURLfriendly = "=HYPERLINK(\"" + univerWebsite + "\",\"" + university.getUniverName() + "\")";
+            university.setUniverName(UniverURLfriendly);
         } catch (NoSuchElementException e) {
             System.out.println("College website not found");
         }

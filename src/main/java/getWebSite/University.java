@@ -7,7 +7,6 @@ import java.util.List;
 class University {
 // search page data
     private String UniverName; // College Board
-    private String UniverURLfriendly; // url for spreashees: UniverName + university admissions page
     private String City; // College Board
     private String State; // College Board
     private String UniverTypeByYears; // College Board
@@ -17,16 +16,12 @@ class University {
     private String GraduationRate; // College Board
     private String SATScoreRange; // College Board
     private String URLCollegeBoard; // College Board
-    private String URLCollegeBoardFriendly; // url for spreashees, combines CollegeBoardCode + URLCollegeBoard
 // Overview page data
     private String Address; // College Board
-    private String MapLink; // College Board
-    private String URLMapLinkFriendly; // url for spreashees, combines "Map" and direct URL
     private String Phone; // College Board
     private String CollegeBoardCode; // College Board
     private String UniverOnlineApplicationURL; // College Board
 // Admissions page data
-    private String UniverWebSiteURL; // College Board
     private String AcceptanceRate; // College Board
     private String ApplicantsTotal; // College Board
     private String ApplicantsAdmitted; // College Board
@@ -43,9 +38,12 @@ class University {
     // "Special Academics Programs" - list of programs like "Double Major" "Distance Learning" "Student-Designed Major" "Undergraduate Research" etc.
 // Academics page data
     private String StudentFacultyRatio; // College Board
-    private String MajorsCount; // College Board
     private String RetentionRate; // College Board
-    private List<String> MajorsAvailable; // College Board
+    private String MajorsCount; // College Board
+    private String MyMajorsCount; // calculated string from MajorsAvailable
+    private List<String> MajorsAvailable = new ArrayList<>(); // College Board
+    //private List<String> MyMajorsAvailable ; // subset of majors of interest from MajorsAvailable list
+    private List<String> MyMajorsAvailable = new ArrayList<>(); // subset of majors of interest from MajorsAvailable list
     private String OffersCredits; // College Board
     private String OffersAdvancedPlacements; // College Board
 // Costs page data
@@ -80,7 +78,7 @@ class University {
     // Priority of interest
 // SCOIR data
     // Nearest Airport
-    // Academics -  Popular Majors
+    // Academics -  Popular Majors 
     // Academics -  Applications Deadlines
     // Stidemtslife  - gender
     // ROTC Program?
@@ -100,13 +98,21 @@ class University {
     // Links: College WebsiteAdmissions OfficeVirtual TourCollege Navigator
     // other deadlines: Visit our website
     
+    public University() {
+        //TODO Auto-generated constructor stub
+    }
     
+    public University(String universityName, String URLCollegeBoard) {
+        this.UniverName = universityName;
+        this.URLCollegeBoard = URLCollegeBoard;
+    }
+
     public Field[] getFields() {
         return University.class.getDeclaredFields();
     }
 
     public String getUniverOnlineApplicationURL() {
-        return UniverOnlineApplicationURL;
+        return UniverOnlineApplicationURL != null ? UniverOnlineApplicationURL : "";
     }
 
     public void setUniverOnlineApplicationURL(String UniverOnlineApplicationURL) {
@@ -118,7 +124,7 @@ class University {
     }
 
     public String getCostAvrgPerYearAfterAid() {
-        return CostAvrgPerYearAfterAid;
+        return CostAvrgPerYearAfterAid != null ? CostAvrgPerYearAfterAid : "";
     }
 
     public void setAvrgAidPackage(String AvrgAidPackage) {
@@ -126,7 +132,7 @@ class University {
     }
 
     public String getAvrgAidPackage() {
-        return AvrgAidPackage;
+        return AvrgAidPackage != null ? AvrgAidPackage : "";
     }
    
     public void setOffersCredits(String OffersCredits) {
@@ -134,7 +140,7 @@ class University {
     }
 
     public String getOffersCredits() {
-        return OffersCredits;
+        return OffersCredits != null ? OffersCredits : "";
     }
 
     public void setOffersAdvancedPlacements(String OffersAdvancedPlacements) {
@@ -142,23 +148,63 @@ class University {
     }
 
     public String getOffersAdvancedPlacements() {
-        return OffersAdvancedPlacements;
+        return OffersAdvancedPlacements != null ? OffersAdvancedPlacements : "";
     }
 
     public void setStudentFacultyRatio(String StudentFacultyRatio) {
         this.StudentFacultyRatio = StudentFacultyRatio;
     }
     public String getStudentFacultyRatio() {
-        return StudentFacultyRatio;
+        return StudentFacultyRatio != null ? StudentFacultyRatio : "";
     }
 
     public void setRetentionRate(String RetentionRate) {
         this.RetentionRate = RetentionRate;
     }
     public String getRetentionRate() {
-        return RetentionRate;
+        return RetentionRate != null ? RetentionRate : "";
+    }
+    public String getMyMajorsAvailable() {
+        return MyMajorsAvailable != null ? String.join("\n", MyMajorsAvailable) : ""; // Convert the List to a newline-separated string
     }
 
+    public void setMyMajorsAvailable(List<String> majorKeywords) {
+        if (!this.MajorsAvailable.isEmpty()){
+        for (String major : this.MajorsAvailable) {
+            for (String keyword : majorKeywords) {
+                if (major.toLowerCase().contains(keyword.toLowerCase())) {
+                    if (this.MyMajorsAvailable == null) {
+                        this.MyMajorsAvailable = new ArrayList<>();
+                    }
+                // Check if the major is already in my majors list
+                if (!this.MyMajorsAvailable.isEmpty() ) {
+                    for (String myMajor : this.MyMajorsAvailable) {
+                        if (myMajor.toLowerCase().equals(major.toLowerCase())){
+                            //System.out.println("University: Major " + major + " is already in my majors list!");
+                        } else {
+                            this.MyMajorsAvailable.add(major);
+                            //System.out.println("University: Major " + major + " added to my majors list!");
+                            break;
+                        }
+                    }
+                } else {
+                    this.MyMajorsAvailable.add(major);
+                    //System.out.println("University: Major " + major + " added to my majors list!");
+                    break;
+                }
+                }
+            }
+        }
+        }
+            // Update the count of my majors
+            try {
+            this.MyMajorsCount = Integer.toString(this.MyMajorsAvailable.size());
+            } catch (Exception e) {
+                //System.out.println("University: Unable to set MyMajorsCount!");
+                this.MyMajorsCount = "0";
+            }
+            System.out.println("University: MyMajorsCount: " + this.MyMajorsCount);
+    }
     public void addMajorAvailable(String major) {
         if (MajorsAvailable == null) {
             MajorsAvailable = new ArrayList<>();
@@ -167,19 +213,29 @@ class University {
     }
 
     public String getMajorsAvailable() {
-        return String.join("\n", MajorsAvailable); // Convert the List to a newline-separated string
+        return MajorsAvailable != null ? String.join("\n", MajorsAvailable) : ""; // Convert the List to a newline-separated string
     }
 
     public void setMajorsAvailable(List<String> MajorsAvailable) { // Update the parameter type to List<String>
         this.MajorsAvailable = MajorsAvailable;
     }
-   
+    public void setMajorsCount(String MajorsCount) {
+        this.MajorsCount = MajorsCount;
+    }
+
+    public String getMajorsCount() {
+        return MajorsCount != null ? MajorsCount : "";
+    }
+
+    public String getMyMajorsCount() {
+        return MyMajorsCount != null ? MyMajorsCount : "";
+    }
     public void setRegularAppDueDate(String RegularAppDueDate) {
         this.RegularAppDueDate = RegularAppDueDate;
     }
     
     public String getRegularAppDueDate() {
-        return RegularAppDueDate;
+        return RegularAppDueDate != null ? RegularAppDueDate : "";
     }
     
     public void setEarlyDecisionAppDueDate(String EarlyDecisionAppDueDate) {
@@ -187,7 +243,7 @@ class University {
     }
     
     public String getEarlyDecisionAppDueDate() {
-        return EarlyDecisionAppDueDate;
+        return EarlyDecisionAppDueDate != null ? EarlyDecisionAppDueDate : "";
     }
 
     public void setEarlyActionAppDueDate(String EarlyActionAppDueDate) {
@@ -195,15 +251,7 @@ class University {
     }
 
     public String getEarlyActionAppDueDate() {
-        return EarlyActionAppDueDate;
-    }
-
-    public void setUniverWebSiteURL(String UniverWebSiteURL) {
-        this.UniverWebSiteURL = UniverWebSiteURL;
-    }
-
-    public String getUniverWebSiteURL() {
-        return UniverWebSiteURL;
+        return EarlyActionAppDueDate != null ? EarlyActionAppDueDate : "";
     }
 
     public void setPhone(String Phone) {
@@ -211,7 +259,7 @@ class University {
     }
 
     public String getPhone() {
-        return Phone;
+        return Phone != null ? Phone : "";
     }
 
 
@@ -220,7 +268,7 @@ class University {
     }
 
     public String getSATTotalRange() {
-        return SATTotalRange;
+        return SATTotalRange != null ? SATTotalRange : "";
     }
 
     public void setSATReadingRange(String SATReadingRange) {
@@ -228,7 +276,7 @@ class University {
     }
 
     public String getSATReadingRange() {
-        return SATReadingRange;
+        return SATReadingRange != null ? SATReadingRange : "";
     }
 
     public void setSATMathRange(String SATMathRange) {
@@ -236,7 +284,7 @@ class University {
     }
 
     public String getSATMathRange() {
-        return SATMathRange;
+        return SATMathRange != null ? SATMathRange : "";
     }
 
     public void setAcceptanceRate(String AcceptanceRate) {
@@ -244,7 +292,7 @@ class University {
     }
 
     public String getAcceptanceRate() {
-        return AcceptanceRate;
+        return AcceptanceRate != null ? AcceptanceRate : "";
     }
 
     public void setApplicantsTotal(String ApplicantsTotal) {
@@ -252,7 +300,7 @@ class University {
     }
 
     public String getApplicantsTotal() {
-        return ApplicantsTotal;
+        return ApplicantsTotal != null ? ApplicantsTotal : "";
     }
 
     public void setApplicantsAdmitted(String ApplicantsAdmitted) {
@@ -260,7 +308,7 @@ class University {
     }
 
     public String getApplicantsAdmitted() {
-        return ApplicantsAdmitted;
+        return ApplicantsAdmitted != null ? ApplicantsAdmitted : "";
     }
 
     public void setApplicantsEnrolled(String ApplicantsEnrolled) {
@@ -268,7 +316,7 @@ class University {
     }
 
     public String getApplicantsEnrolled() {
-        return ApplicantsEnrolled;
+        return ApplicantsEnrolled != null ? ApplicantsEnrolled : "";
     }
 
     public void setApplicationFee(String ApplicationFee) {
@@ -276,7 +324,7 @@ class University {
     }
 
     public String getApplicationFee() {
-        return ApplicationFee;
+        return ApplicationFee != null ? ApplicationFee : "";
     }
 
     public void setStudentsReceivFinAid(String StudentsReceivFinAid) {
@@ -284,7 +332,7 @@ class University {
     }
 
     public String getStudentsReceivFinAid() {
-        return StudentsReceivFinAid;
+        return StudentsReceivFinAid != null ? StudentsReceivFinAid : "";
     }
 
     public void setCostInStateFull(String CostInStateFull) {
@@ -292,7 +340,7 @@ class University {
     }
 
     public String getCostInStateFull() {
-        return CostInStateFull;
+        return CostInStateFull != null ? CostInStateFull : "";
     }
 
     public void setCostOutOfStateFull(String CostOutOfStateFull) {
@@ -300,7 +348,7 @@ class University {
     }
 
     public String getCostOutOfStateFull() {
-        return CostOutOfStateFull;
+        return CostOutOfStateFull != null ? CostOutOfStateFull : "";
     }
 
     public void setCostFor110kHHIncome(String CostFor110kHHIncome) {
@@ -308,7 +356,7 @@ class University {
     }
 
     public String getCostFor110kHHIncome() {
-        return CostFor110kHHIncome;
+        return CostFor110kHHIncome != null ? CostFor110kHHIncome : "";
     }
 
     public void setCostHousing(String CostHousing) {
@@ -316,7 +364,7 @@ class University {
     }
 
     public String getCostHousing() {
-        return CostHousing;
+        return CostHousing != null ? CostHousing : "";
     }
 
     public void setCostBooksSuppl(String CostBooksSuppl) {
@@ -324,7 +372,7 @@ class University {
     }
 
     public String getCostBooksSuppl() {
-        return CostBooksSuppl;
+        return CostBooksSuppl != null ? CostBooksSuppl : "";
     }
 
     public void setCostTransportation(String CostTransportation) {
@@ -332,7 +380,7 @@ class University {
     }
 
     public String getCostTransportation() {
-        return CostTransportation;
+        return CostTransportation != null ? CostTransportation : "";
     }
 
     public void setUnderGradStudents(String UnderGradStudents) {
@@ -340,7 +388,7 @@ class University {
     }
 
     public String getUnderGradStudents() {
-        return UnderGradStudents;
+        return UnderGradStudents != null ? UnderGradStudents : "";
     }
 
     public void setURLCollegeBoard(String URLCollegeBoard) {
@@ -348,7 +396,7 @@ class University {
     }
     
     public String getURLCollegeBoard() {
-        return URLCollegeBoard;
+        return URLCollegeBoard != null ? URLCollegeBoard : "";
     }
     
     public void setUniverName(String UniverName) {
@@ -356,7 +404,7 @@ class University {
     }
     
     public String getUniverName() {
-        return UniverName;
+        return UniverName != null ? UniverName : "";
     }
     
     public void setAddress(String Address) {
@@ -364,21 +412,15 @@ class University {
     }
     
     public String getAddress() {
-        return Address;
+        return Address != null ? Address : "";
     }
-    public void setMapLink(String MapLink) {
-        this.MapLink = MapLink;
-    }
-
-    public String getMapLink() {
-        return MapLink;
-    }
+   
     public void setCity(String City) {
         this.City = City;
     }
 
     public String getCity() {
-        return City;
+        return City != null ? City : "";
     }
 
     public void setState(String State) {
@@ -386,14 +428,14 @@ class University {
     }
 
     public String getState() {
-        return State;
+        return State != null ? State : "";
     }
     public void setUniverTypeByYears(String UniverTypeByYears) {
         this.UniverTypeByYears = UniverTypeByYears;
     }
     
     public String getUniverTypeByYears() {
-        return UniverTypeByYears;
+        return UniverTypeByYears != null ? UniverTypeByYears : "";
     }
     
     public void setUniverTypeByDesignation(String UniverTypeByDesignation) {
@@ -401,7 +443,7 @@ class University {
     }
     
     public String getUniverTypeByDesignation() {
-        return UniverTypeByDesignation;
+        return UniverTypeByDesignation != null ? UniverTypeByDesignation : "";
     }
     
     public void setUniverSize(String UniverSize) {
@@ -409,7 +451,7 @@ class University {
     }
     
     public String getUniverSize() {
-        return UniverSize;
+        return UniverSize != null ? UniverSize : "";
     }
     
     public void setUniverSetting(String UniverSetting) {
@@ -417,7 +459,7 @@ class University {
     }
     
     public String getUniverSetting() {
-        return UniverSetting;
+        return UniverSetting != null ? UniverSetting : "";
     }
     
     public void setGraduationRate(String GraduationRate) {
@@ -425,7 +467,7 @@ class University {
     }
     
     public String getGraduationRate() {
-        return GraduationRate;
+        return GraduationRate != null ? GraduationRate : "";
     }
     
     public void setSATScoreRange(String SATScoreRange) {
@@ -433,18 +475,7 @@ class University {
     }
     
     public String getSATScoreRange() {
-        return SATScoreRange;
-    }
-    public University() {
-        //TODO Auto-generated constructor stub
-    }
-
-    public void setMajorsCount(String MajorsCount) {
-        this.MajorsCount = MajorsCount;
-    }
-
-    public String getMajorsCount() {
-        return MajorsCount;
+        return SATScoreRange != null ? SATScoreRange : "";
     }
 
     public void setCollegeBoardCode(String CollegeBoardCode) {
@@ -452,7 +483,7 @@ class University {
     }
 
     public String getCollegeBoardCode() {
-        return CollegeBoardCode;
+        return CollegeBoardCode != null ? CollegeBoardCode : "";
     }
 
     public void setFirstYearsInCollegeHousing(String FirstYearsInCollegeHousing) {
@@ -460,11 +491,11 @@ class University {
     }
 
     public String getFirstYearsInCollegeHousing() {
-        return FirstYearsInCollegeHousing;
+        return FirstYearsInCollegeHousing != null ? FirstYearsInCollegeHousing : "";
     }
 
     public String getGraduateStudents() {
-        return GraduateStudents;
+        return GraduateStudents != null ? GraduateStudents : "";
     }
 
     public void setGraduateStudents(String GraduateStudents) {
@@ -472,7 +503,7 @@ class University {
     }
 
     public String getFullTimeStudents() {
-        return FullTimeStudents;
+        return FullTimeStudents != null ? FullTimeStudents : "";
     }
 
     public void setFullTimeStudents(String FullTimeStudents) {
@@ -480,7 +511,7 @@ class University {
     }
 
     public String getPartTimeStudents() {
-        return PartTimeStudents;
+        return PartTimeStudents != null ? PartTimeStudents : "";
     }
 
     public void setPartTimeStudents(String PartTimeStudents) {
@@ -488,7 +519,7 @@ class University {
     }
 
     public String getPrimaryResidenceOutOfState() {
-        return PrimaryResidenceOutOfState;
+        return PrimaryResidenceOutOfState != null ? PrimaryResidenceOutOfState : "";
     }
 
     public void setPrimaryResidenceOutOfState(String PrimaryResidenceOutOfState) {
@@ -496,7 +527,7 @@ class University {
     }
 
     public String getEthn_black() {
-        return Ethn_black;
+        return Ethn_black != null ? Ethn_black : "";
     }
 
     public void setEthn_black(String Ethn_black) {
@@ -504,7 +535,7 @@ class University {
     }
 
     public String getEthn_asians() {
-        return Ethn_asians;
+        return Ethn_asians != null ? Ethn_asians : "";
     }
 
     public void setEthn_asians(String Ethn_asians) {
@@ -512,7 +543,7 @@ class University {
     }
 
     public String getEthn_hispanics() {
-        return Ethn_hispanics;
+        return Ethn_hispanics != null ? Ethn_hispanics : "";
     }
 
     public void setEthn_hispanics(String Ethn_hispanics) {
@@ -520,7 +551,7 @@ class University {
     }
 
     public String getEthn_multi() {
-        return Ethn_multi;
+        return Ethn_multi != null ? Ethn_multi : "";
     }
 
     public void setEthn_multi(String Ethn_multi) {
@@ -528,7 +559,7 @@ class University {
     }
 
     public String getEthn_nativAm() {
-        return Ethn_nativAm;
+        return Ethn_nativAm != null ? Ethn_nativAm : "";
     }
 
     public void setEthn_nativAm(String Ethn_nativAm) {
@@ -536,7 +567,7 @@ class University {
     }
 
     public String getEthn_pacificIslr() {
-        return Ethn_pacificIslr;
+        return Ethn_pacificIslr != null ? Ethn_pacificIslr : "";
     }
 
     public void setEthn_pacificIslr(String Ethn_pacificIslr) {
@@ -544,7 +575,7 @@ class University {
     }
 
     public String getEthn_white() {
-        return Ethn_white;
+        return Ethn_white != null ? Ethn_white : "";
     }
 
     public void setEthn_white(String Ethn_white) {
@@ -552,7 +583,7 @@ class University {
     }
 
     public String getEthn_intenational() {
-        return Ethn_intenational;
+        return Ethn_intenational != null ? Ethn_intenational : "";
     }
 
     public void setEthn_intenational(String Ethn_intenational) {
@@ -560,7 +591,7 @@ class University {
     }
 
     public String getEthn_unknown() {
-        return Ethn_unknown;
+        return Ethn_unknown != null ? Ethn_unknown : "";
     }
 
     public void setEthn_unknown(String Ethn_unknown) {
@@ -568,7 +599,7 @@ class University {
     }
 
     public String getCostPersonalExpenses() {
-        return CostPersonalExpenses;
+        return CostPersonalExpenses != null ? CostPersonalExpenses : "";
     }
 
     public void setCostPersonalExpenses(String CostPersonalExpenses) {
