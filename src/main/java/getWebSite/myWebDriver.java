@@ -13,6 +13,7 @@ public class myWebDriver {
             System.setProperty("webdriver.chrome.driver", "/usr/local/bin/chromedriver");
             //chromeoption.addArguments("--remote-allow-origins=* --log-level=3");
             chromeoption.addArguments("--remote-allow-origins=*");
+            chromeoption.addArguments("--headless");
             WebDriver driver = new ChromeDriver(chromeoption);
             // Declare and initialize the targetSize variable
             // org.openqa.selenium.Dimension targetSize = new Dimension(1400, 1800);

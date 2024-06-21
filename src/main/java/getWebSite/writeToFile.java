@@ -1,5 +1,6 @@
 package getWebSite;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -9,6 +10,7 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.poi.openxml4j.util.ZipSecureFile;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellStyle;
 import org.apache.poi.ss.usermodel.Font;
@@ -39,6 +41,7 @@ public class writeToFile {
     }
     private static void mapHeader(String sheetName, String excelFile) {
         //System.out.println("mapHeader excelFile..." + excelFile + " sheetName: " + sheetName);
+        ZipSecureFile.setMinInflateRatio(0.0001);
         try (FileInputStream fis = new FileInputStream(excelFile)){
             Workbook workbook = new XSSFWorkbook(fis);
             Sheet sh = workbook.getSheet(sheetName);
@@ -108,17 +111,8 @@ public class writeToFile {
             }catch (IOException e) {
                 e.printStackTrace();
              }
-    
         }
-            /* print header columns with IDs
-            String header = "| ";
-            for (columnMap cR : columnMap) {
-                header = header + cR.getColumnIndex() +":" +cR.getCellAddress() + " " + cR.getFileColmName() + " | ";
-            }
-            // print header columns with IDs
-            System.out.println(header);
-            */
-    
+         fis.close(); // close the file
         }   catch (IOException ex) {
         }
     }
@@ -219,11 +213,13 @@ public class writeToFile {
     }
     private static Integer getPhysicalNumberOfRows(String excelFile, String sheetName) {
         Integer rowCount = 0;
+        ZipSecureFile.setMinInflateRatio(0.0001);
         try (FileInputStream fis = new FileInputStream(excelFile)){
             Workbook workbook = new XSSFWorkbook(fis);
             Sheet sh = workbook.getSheet(sheetName);
             rowCount = sh.getPhysicalNumberOfRows();
             workbook.close();
+            fis.close();
         } catch (IOException e) {
             System.out.println("getPhysicalNumberOfRows: Unable to read worksheet: " + sheetName + " in the file: " + excelFile);
         }
@@ -234,6 +230,7 @@ public class writeToFile {
         mapHeader(sheetName, excelFile); 
         University[] univerData = new University[getPhysicalNumberOfRows(excelFile, sheetName)-1]; // -1 to skip header row
         //System.out.println("univerData: rowscount" + univerData.length);
+        ZipSecureFile.setMinInflateRatio(0.0001);
         try {
             FileInputStream fileIn = new FileInputStream(excelFile);
             Workbook workbook = new XSSFWorkbook(fileIn);
@@ -299,8 +296,10 @@ public class writeToFile {
 
     public static void writeExcelFile(String excelFile, String sheetName, University uD) {
         mapHeader(sheetName, excelFile); 
+        ZipSecureFile.setMinInflateRatio(0.0001);
+        File mFile = new File(excelFile);
         try {
-            FileInputStream fileIn = new FileInputStream(excelFile);
+            FileInputStream fileIn = new FileInputStream(mFile);
             Workbook workbook = new XSSFWorkbook(fileIn);
             Sheet sh = workbook.getSheet(sheetName);
             //System.out.println("Sheet name: " + sh.getSheetName());
@@ -434,54 +433,19 @@ public class writeToFile {
                     }                 
                 }
         // Write changes to the file
-        try (FileOutputStream fos = new FileOutputStream(excelFile)) {
+        try (FileOutputStream fos = new FileOutputStream(mFile)) {
             workbook.write(fos);
-            workbook.close();
             //System.out.println("ReadFile: File updated and Excel file saved successfully.");
             mapHeader(sheetName, excelFile);
         }catch (IOException e) {
             e.printStackTrace();
             }
-            // read the each row in the file
-            /*
-            while (rowIndex < sh.getPhysicalNumberOfRows()) {
-                Row currentRow = sh.getRow(rowIndex);
-                Integer phisicalRowNumber = rowIndex+1;
-                Cell currentCell = currentRow.getCell(0);
-                String cellValue = "";
-                switch (currentCell.getCellType()) {
-                    case STRING:
-                        cellValue = currentCell.getStringCellValue();
-                        break;
-                    case NUMERIC:
-                        cellValue = String.valueOf(currentCell.getNumericCellValue());
-                        break;
-                    case BOOLEAN:
-                        cellValue = String.valueOf(currentCell.getBooleanCellValue());
-                        break;
-                    case FORMULA:
-                        cellValue = currentCell.getCellFormula();
-                        break;
-                    default:
-                        cellValue = "";
-                        break;
-                }
-                if (currentCell.getCellType() == CellType.BLANK) {
-                    //System.out.println("Unclonw cell type found at row: " + phisicalRowNumber);
-                    //break;
-                } else {
-                    //System.out.print("Row: " + phisicalRowNumber + "| "+ cellValue + " |\n");
-                }
-                rowIndex++;
-            } 
-            */
-            workbook.close();
-            fileIn.close();
-            System.out.println("File successfully updated: " + excelFile);
-
+        workbook.close();
+        fileIn.close();
+        System.out.println("File successfully updated: " + excelFile);
     } catch (IOException e) {
         e.printStackTrace();
-    }
+    } 
     }
     public static CellStyle getBlueUnderlinedCellStyle(Workbook workbook) {
         // Create a new font in the workbook
