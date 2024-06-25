@@ -3,6 +3,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 
+import dataObjects.University;
+
 public class CBOverview
 {
     public static void main( String[] args ) throws InterruptedException
@@ -35,9 +37,13 @@ public class CBOverview
             String addr = driver.findElement(By.cssSelector("[data-testid='csp-banner-section-school-location-label']")).getText();
             String[] parts = addr.split(",");
             String City = parts[0].trim();
-            String State = parts[1].trim();
             university.setCity(City);
+            try { 
+            String State = parts[1].trim();
             university.setState(State);
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("CBOverview: State not found");
+        }
         } catch (NoSuchElementException e) {
             System.out.println("Address not found");
         }

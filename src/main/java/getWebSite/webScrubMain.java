@@ -4,6 +4,9 @@ import java.util.List;
 
 import org.openqa.selenium.WebDriver;
 
+import dataObjects.University;
+import fileIO.readFile;
+import fileIO.writeToFile;
 
 public class webScrubMain
 {
@@ -12,7 +15,7 @@ public class webScrubMain
     // file to write results to
     String path = "./data/";
     String excelFileName = "myUniverData2024.xlsx";
-    String sheetName = "wu";
+    String sheetName = "wuTest";
 
     // list of keywords to search majors
     List<String> majorKeywords = new ArrayList<>();
@@ -31,7 +34,7 @@ public class webScrubMain
     // 4 colleges for debug: String SearchURL = "https://bigfuture.collegeboard.org/college-search/filters?mc=Computer_Science,_General&mc=Computer_Software_Engineering&mc=Information_Science&deg=bachelors&stby=4&z=95765&z=50mi";
 
     // read universities from file
-    University[] universityData = writeToFile.readExcelFile(path + excelFileName, sheetName);  
+    University[] universityData = readFile.readExcelFile(path + excelFileName, sheetName);  
     System.out.println("universityData: " + universityData.length);
     
     // search for universities on the College Board website
@@ -62,8 +65,9 @@ public class webScrubMain
         System.out.println("webScrubMain: Unable to read from universityData!");
         continue;
     }
-    System.out.println("----------------| " + UniverName + " |------" + "\n" + eaURL);
+    System.out.println("--------- Processing: " + UniverName + " | " + eaURL);
     //create a new instance of the webDriver
+   
     WebDriver driver = myWebDriver.getDriver();
     new CBOverview().univerCbOverview(eaURL, driver, university);
     new CBAdmissions().univerCBAdmissions(eaURL, driver, university);
@@ -73,6 +77,7 @@ public class webScrubMain
     driver.quit();
     university.setMyMajorsAvailable(majorKeywords); // find majors of my interest in the list of majors for the university
     writeToFile.writeExcelFile(path + excelFileName,sheetName, university);
+
     }
     }
 }

@@ -4,6 +4,8 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import dataObjects.University;
+
 public class CBCosts
 {
     public static void main( String[] args ) throws InterruptedException
