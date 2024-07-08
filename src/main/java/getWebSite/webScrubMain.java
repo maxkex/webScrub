@@ -21,6 +21,7 @@ public class webScrubMain
     List<String> majorKeywords = new ArrayList<>();
         majorKeywords.add("statist");
         majorKeywords.add("comput");
+        majorKeywords.add("artificial");
        // majorKeywords.add("engineer");
        // majorKeywords.add("data");
        // majorKeywords.add("cyber");
